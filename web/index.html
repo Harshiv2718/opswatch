@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#17212e" />
+  <meta name="description" content="OpsWatch explores historical anomaly assessments, source messages, and honest offline evaluation results." />
+  <title>OpsWatch · Historical anomaly assessment</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2317212e'/%3E%3Cpath d='M12 38h10l7-18 10 28 7-17h7' fill='none' stroke='%23a5b4ff' stroke-width='5' stroke-linejoin='round'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="./styles.css" />
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#overview" aria-label="OpsWatch overview"><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#394b66"/><path d="M6 19h5l3-9 5 14 3-9h4" fill="none" stroke="#c0ccff" stroke-width="2.2" stroke-linejoin="round"/></svg><span>OpsWatch<span class="brand-dot">.</span></span></a>
+      <div class="workspace-label"><span class="workspace-mark">H</span><div><strong>Historical workspace</strong><span>Evidence before assumptions</span></div></div>
+      <p class="nav-caption">ASSESSMENT</p>
+      <nav aria-label="Main navigation">
+        <a href="#overview" class="nav-link active"><span class="nav-symbol" aria-hidden="true">▦</span>Overview</a>
+        <a href="#events" class="nav-link"><span class="nav-symbol" aria-hidden="true">≋</span>Event explorer<span id="nav-event-count" class="nav-count" hidden></span></a>
+        <a href="#method" class="nav-link"><span class="nav-symbol" aria-hidden="true">⌘</span>Evaluation notes</a>
+      </nav>
+      <div class="sidebar-note"><span class="note-orbit" aria-hidden="true">◌</span><h2>Look back.<br />Learn something.</h2><p>A focused view of recorded data, model outputs, and the tradeoffs in between.</p></div>
+      <div class="sidebar-footer"><span class="offline-dot"></span><span>Offline analysis<br /><strong>No live monitoring</strong></span></div>
+    </aside>
+    <div class="main-shell">
+      <header class="topbar"><div class="breadcrumb">Workspace <span aria-hidden="true">/</span> <strong>Assessment overview</strong></div><span class="historical-badge"><span></span>Historical evaluation</span></header>
+      <main id="main" tabindex="-1">
+        <section id="overview" class="overview-section" aria-labelledby="page-title">
+          <div class="page-heading"><div><p class="eyebrow"><span></span>FROM RECORDED DATA TO BETTER QUESTIONS</p><h1 id="page-title">See the signal.<br /><span>Keep the context.</span></h1><p class="page-intro">Explore historical anomaly scores, check the evidence, and understand where the model gets it right—or misses.</p></div><div class="heading-actions"><p id="load-time" class="load-time">Report not loaded yet</p><button id="refresh" class="button primary" type="button"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M20 7v5h-5M4 17v-5h5M6 6a8 8 0 0 1 13 2M5 16a8 8 0 0 0 13 2"/></svg>Refresh assessment</button></div></div>
+          <div id="loading" class="loading-state" role="status"><span class="spinner"></span>Opening the assessment…</div>
+          <div id="report-error" class="error-banner" role="alert" hidden></div>
+          <div id="report-empty" class="empty-state" hidden><span class="empty-mark" aria-hidden="true">↗</span><h2>The evidence comes first.</h2><p>No completed evaluation has been reported yet. Run the historical evaluation pipeline, then refresh this page to explore its real results.</p><span class="empty-tag">No example scores or fabricated metrics</span></div>
+          <div id="report-content" hidden>
+            <div class="context-strip"><div><span class="context-icon" aria-hidden="true">▤</span><div><span class="small-label">DATASET</span><strong id="dataset-name">Not reported</strong></div></div><div><span class="context-icon" aria-hidden="true">⎇</span><div><span class="small-label">MODEL</span><strong id="model-name">Not reported</strong></div></div><div><span class="context-icon" aria-hidden="true">◷</span><div><span class="small-label">TEST PERIOD · UTC</span><strong id="test-period">Not reported</strong></div></div><a id="source-link" class="source-link" target="_blank" rel="noopener noreferrer" hidden>Dataset source <span aria-hidden="true">↗</span></a></div>
+            <div id="metrics" class="metrics-grid" aria-label="Evaluation metrics"></div>
+            <div class="analysis-grid"><section class="panel comparison-panel" aria-labelledby="comparison-heading"><div class="section-heading"><div><span class="eyebrow">SIDE BY SIDE</span><h2 id="comparison-heading">A baseline keeps us honest.</h2></div><div class="chart-legend"><span><i class="model-swatch"></i>Model</span><span><i class="baseline-swatch"></i>Baseline</span></div></div><div id="comparison" class="comparison-chart"></div><p class="panel-footnote">Same held-out test split. Missing measurements stay unreported.</p></section><section class="panel context-panel" aria-labelledby="context-heading"><span class="eyebrow">THE EVALUATION CONTEXT</span><h2 id="context-heading">Numbers need a frame.</h2><dl id="evaluation-context" class="context-list"></dl><p id="score-semantics" class="panel-footnote"></p></section></div>
+          </div>
+        </section>
+        <section id="events" class="events-section" aria-labelledby="events-heading"><div class="section-heading"><div><p class="eyebrow">LOOK CLOSER</p><h2 id="events-heading">The event explorer<span id="event-count" class="count-badge">—</span></h2><p>Inspect recorded windows and their source messages. Predictions and known labels remain separate.</p></div><button id="export-events" class="button secondary" disabled type="button"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 3v12m-4-4 4 4 4-4M4 16v4h16v-4"/></svg>Export filtered CSV</button></div>
+          <p id="event-scope" class="event-scope" hidden></p>
+          <div id="events-error" class="error-banner" role="alert" hidden></div>
+          <div id="events-empty" class="empty-state compact" hidden><span class="empty-mark" aria-hidden="true">≋</span><h3>No recorded windows to explore.</h3><p>The explorer will populate when <code>/api/events</code> returns historical evaluation windows. Nothing is generated in the browser.</p></div>
+          <div id="event-tools" hidden><form id="filters" class="filters" role="search" aria-label="Filter historical events"><label class="search-control">Search messages<span class="input-with-icon"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Search the evidence…" /></span></label><label>Prediction<select id="prediction"><option value="all">All predictions</option><option value="anomaly">Predicted anomaly</option><option value="normal">Predicted normal</option><option value="unknown">Not reported</option></select></label><label>Outcome<select id="outcome"><option value="all">All outcomes</option><option value="tp">True positive</option><option value="fp">False positive</option><option value="fn">False negative</option><option value="tn">True negative</option><option value="unknown">Unlabeled / unknown</option></select></label><label>From date · UTC<input id="from-date" type="date" /></label><label>To date · UTC<input id="to-date" type="date" /></label><button id="clear-filters" class="clear-button" type="button">Clear filters</button></form><p id="filter-error" class="filter-error" role="alert" hidden></p><div id="score-chart" class="score-chart" hidden></div><div id="filter-empty" class="filter-empty" hidden><h3>No windows match those filters.</h3><p>Try another date, prediction, outcome, or search term.</p></div><div id="table-container" class="table-scroll" role="region" aria-label="Historical event windows, horizontally scrollable" tabindex="0"><table><caption class="sr-only">Historical windows with model scores, predictions, known labels, and source message excerpts. Select a window to expand its evidence.</caption><thead><tr><th scope="col">Window · UTC</th><th scope="col">Anomaly score</th><th scope="col">Prediction</th><th scope="col">Known label</th><th scope="col">Outcome</th><th scope="col">Evidence</th></tr></thead><tbody id="event-rows"></tbody></table></div><div id="pagination" class="pagination"><p id="page-summary"></p><div><button id="previous-page" class="button secondary" type="button">Previous</button><span id="page-number"></span><button id="next-page" class="button secondary" type="button">Next</button></div></div></div>
+        </section>
+        <section id="method" class="method-section" aria-labelledby="method-heading"><div class="section-heading"><div><p class="eyebrow">SHOW THE WORK</p><h2 id="method-heading">Know what this assessment can say.</h2><p>A historical test is a useful lens. It is not a production guarantee.</p></div></div><div class="method-grid"><section class="panel split-panel"><h3>Training, validation, test</h3><p>Separate splits help keep evaluation distinct from fitting and threshold selection.</p><div id="split-details" class="split-details"><p class="not-reported">Split details have not been reported.</p></div></section><section class="panel limitations-panel"><h3>Limits, in plain sight.</h3><ul id="limitations"><li>This dashboard displays historical offline results. It does not monitor live systems or send alerts.</li><li>Scores, labels, and metrics are shown only when returned by the evaluation API.</li></ul></section></div><details id="report-details" class="report-details"><summary>Inspect the report JSON <span aria-hidden="true">+</span></summary><pre id="raw-report">No report has been loaded.</pre></details></section>
+        <footer class="page-footer"><span><span class="offline-dot"></span>Recorded data. Reproducible questions.</span><span>OpsWatch · Historical anomaly assessment</span></footer>
+      </main>
+    </div>
+  </div>
+  <div id="notification" class="notification" role="status" hidden></div>
+</body>
+</html>

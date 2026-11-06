@@ -1,0 +1,172 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "generated_at": "2026-11-06T03:00:30.136726+00:00",
+  "dataset": {
+    "name": "BGL / Loghub",
+    "source_url": "https://zenodo.org/records/8196385",
+    "details": "Complete official BGL.zip archive: all records streamed, including metadata-only records with empty messages; fixed 60-second occupied windows. No 2k sample used.",
+    "records": 4747963,
+    "alert_records": 348460,
+    "sha256": "d67fd82a711aea0157a9b83175892c6ee60e384a2ddf5bc51f39118453816da8",
+    "md5": "4452953c470f2d95fcb32d5f6e733f7a",
+    "window_seconds": 60,
+    "occupied_windows": 27670,
+    "label_definition": "First raw token '-' is non-alert; any other tag is alert. A window is positive if any record is alert."
+  },
+  "model": {
+    "name": "StandardScaler + class-balanced LogisticRegression",
+    "feature_names": [
+      "log_event_count",
+      "log_error_count",
+      "log_fatal_count",
+      "log_warning_count",
+      "log_distinct_components",
+      "mean_message_length",
+      "max_message_length",
+      "failure_keyword_fraction"
+    ],
+    "score_semantics": "Uncalibrated classifier score from predict_proba for historical BGL alert windows; not an empirically calibrated probability or operational risk.",
+    "feature_coefficients": [
+      {
+        "feature": "log_event_count",
+        "standardized_coefficient": -1.2065586231710688
+      },
+      {
+        "feature": "log_error_count",
+        "standardized_coefficient": 0.2467990649140291
+      },
+      {
+        "feature": "log_fatal_count",
+        "standardized_coefficient": 2.6189470196916287
+      },
+      {
+        "feature": "log_warning_count",
+        "standardized_coefficient": -0.8831646137315493
+      },
+      {
+        "feature": "log_distinct_components",
+        "standardized_coefficient": 0.4901197084243086
+      },
+      {
+        "feature": "mean_message_length",
+        "standardized_coefficient": -1.6757095499654466
+      },
+      {
+        "feature": "max_message_length",
+        "standardized_coefficient": 1.1786459709461397
+      },
+      {
+        "feature": "failure_keyword_fraction",
+        "standardized_coefficient": 0.48107734673488844
+      }
+    ],
+    "random_state": 42
+  },
+  "evaluation": {
+    "precision": 0.7270875763747454,
+    "recall": 0.9272727272727272,
+    "f1": 0.815068493150685,
+    "average_precision": 0.8160054755565557,
+    "roc_auc": 0.9829738721173952,
+    "false_positive_rate": 0.0260244707710235,
+    "confusion_matrix": {
+      "tp": 357,
+      "fp": 134,
+      "tn": 5015,
+      "fn": 28
+    },
+    "windows": 5534,
+    "anomalous_windows": 385,
+    "threshold": 0.4597826714634374,
+    "threshold_policy": "Maximized validation F1; ties use precision, then the higher threshold.",
+    "baseline_name": "Any ERROR/FATAL/FAILURE/SEVERE message in the window",
+    "baseline_precision": 0.5653450807635829,
+    "baseline_recall": 1.0,
+    "baseline_f1": 0.7223264540337712,
+    "test_windows": 5534,
+    "baseline": {
+      "precision": 0.5653450807635829,
+      "recall": 1.0,
+      "f1": 0.7223264540337712,
+      "average_precision": 0.5653450807635829,
+      "roc_auc": 0.9712565546708098,
+      "false_positive_rate": 0.057486890658380266,
+      "confusion_matrix": {
+        "tp": 385,
+        "fp": 296,
+        "tn": 4853,
+        "fn": 0
+      },
+      "windows": 5534,
+      "anomalous_windows": 385
+    },
+    "always_normal_baseline": {
+      "precision": null,
+      "recall": 0.0,
+      "f1": 0.0,
+      "average_precision": 0.06956993133357427,
+      "roc_auc": 0.5,
+      "false_positive_rate": 0.0,
+      "confusion_matrix": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 5149,
+        "fn": 385
+      },
+      "windows": 5534,
+      "anomalous_windows": 385
+    },
+    "validation": {
+      "precision": 0.4052631578947368,
+      "recall": 0.927710843373494,
+      "f1": 0.5641025641025641,
+      "average_precision": 0.33748126727699324,
+      "roc_auc": 0.969491615333099,
+      "false_positive_rate": 0.020730141258484682,
+      "confusion_matrix": {
+        "tp": 77,
+        "fp": 113,
+        "tn": 5338,
+        "fn": 6
+      },
+      "windows": 5534,
+      "anomalous_windows": 83
+    }
+  },
+  "split": {
+    "train": {
+      "windows": 16602,
+      "anomalous_windows": 1370,
+      "start": "2005-06-03T22:42:00Z",
+      "end": "2005-10-18T01:37:00Z"
+    },
+    "validation": {
+      "windows": 5534,
+      "anomalous_windows": 83,
+      "start": "2005-10-18T01:37:00Z",
+      "end": "2005-11-09T01:26:00Z"
+    },
+    "test": {
+      "windows": 5534,
+      "anomalous_windows": 385,
+      "start": "2005-11-09T01:30:00Z",
+      "end": "2006-01-04T16:01:00Z"
+    }
+  },
+  "runtime": {
+    "python": "3.12.14",
+    "scikit_learn": "1.8.0",
+    "numpy": "2.3.5",
+    "elapsed_seconds": 19.032
+  },
+  "limitations": [
+    "Historical classification of observed windows; this does not forecast future incidents or demonstrate live monitoring.",
+    "Chronological 60/20/20 split over occupied UTC windows only; periods with no logs are omitted, not labeled normal.",
+    "The label tag, timestamps and node identifiers are excluded from features; scaler/model fit training only, threshold uses validation only.",
+    "Repeated message patterns and adjacent windows may remain across splits. Temporal separation is not proof of cross-system generalization.",
+    "Scores are not calibrated risk. Labels describe BGL alert categories rather than independently verified incident impact.",
+    "Baseline may outperform the trained model; inspect held-out metrics rather than assuming ML is better.",
+    "Events are an evenly spaced chronological sample of at most 500 held-out windows; metrics use all held-out windows."
+  ]
+}

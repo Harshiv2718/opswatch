@@ -1,0 +1,8 @@
+{
+  "name": "opswatch-web",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": { "test": "node --test data.test.js" },
+  "engines": { "node": ">=24" }
+}
