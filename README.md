@@ -2,6 +2,8 @@
 
 **A historical log-alert classifier with a reproducible ML evaluation and an interactive investigation dashboard.**
 
+**[Explore the live dashboard](https://opswatch-harshiv.virat2718.chatgpt.site)** — view the historical evaluation and sample log windows online.
+
 OpsWatch examines recorded system logs, groups them into one-minute windows and classifies windows against existing alert labels. Its dashboard lets a reviewer compare a trained model with a simple severity rule and explore sampled test-period windows. This is an offline research demonstration; it does not predict future outages or connect to a live production system.
 
 ## What the evaluation found
