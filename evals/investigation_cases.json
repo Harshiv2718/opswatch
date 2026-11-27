@@ -1,0 +1,277 @@
+[
+  {
+    "name": "machine-check",
+    "start": "2005-11-12T09:30:00Z",
+    "records": [
+      {
+        "id": "L4192331",
+        "timestamp": "2005-11-12T09:30:05Z",
+        "component": "KERNEL",
+        "severity": "FATAL",
+        "message": "machine check interrupt"
+      }
+    ],
+    "causes": {}
+  },
+  {
+    "name": "opaque-termination-code",
+    "start": "2005-11-16T03:20:00Z",
+    "records": [
+      {
+        "id": "L4209930",
+        "timestamp": "2005-11-16T03:20:00Z",
+        "component": "KERNEL",
+        "severity": "FATAL",
+        "message": "rts: kernel terminated for reason 1004"
+      }
+    ],
+    "causes": {}
+  },
+  {
+    "name": "load-permission",
+    "start": "2005-11-18T12:37:00Z",
+    "records": [
+      {
+        "id": "L4220801",
+        "timestamp": "2005-11-18T12:37:00Z",
+        "component": "APP",
+        "severity": "FATAL",
+        "message": "ciod: Error loading /bgl/apps/followup/SPaSM_static/SPaSM.V1R2M0: invalid or missing program image, Permission denied"
+      }
+    ],
+    "causes": {
+      "A program load failed because access was denied.": [
+        "L4220801"
+      ]
+    }
+  },
+  {
+    "name": "timeout-and-resets",
+    "start": "2005-11-18T13:34:00Z",
+    "records": [
+      {
+        "id": "L4221898",
+        "timestamp": "2005-11-18T13:34:57Z",
+        "component": "APP",
+        "severity": "FATAL",
+        "message": "ciod: Error reading message prefix on CioStream socket to 172.16.96.116:59217, Connection reset by peer"
+      },
+      {
+        "id": "L4221899",
+        "timestamp": "2005-11-18T13:34:58Z",
+        "component": "APP",
+        "severity": "FATAL",
+        "message": "ciod: Error reading message prefix on CioStream socket to 172.16.96.116:59216, Connection reset by peer"
+      }
+    ],
+    "causes": {
+      "A socket read failed because the peer reset the connection.": [
+        "L4221898",
+        "L4221899"
+      ]
+    }
+  },
+  {
+    "name": "missing-image",
+    "start": "2005-11-23T02:25:00Z",
+    "records": [
+      {
+        "id": "L4269960",
+        "timestamp": "2005-11-23T02:25:36Z",
+        "component": "APP",
+        "severity": "FATAL",
+        "message": "ciod: Error loading verbose: invalid or missing program image, No such file or directory"
+      }
+    ],
+    "causes": {
+      "A program load failed because the named file or path could not be found.": [
+        "L4269960"
+      ]
+    }
+  },
+  {
+    "name": "missing-directory",
+    "start": "2005-12-01T03:56:00Z",
+    "records": [
+      {
+        "id": "L4319141",
+        "timestamp": "2005-12-01T03:56:00Z",
+        "component": "APP",
+        "severity": "FATAL",
+        "message": "ciod: LOGIN chdir(/g/g0/spelce1/Linpack_SWL) failed: No such file or directory"
+      }
+    ],
+    "causes": {
+      "A login directory change failed because the named path could not be found.": [
+        "L4319141"
+      ]
+    }
+  },
+  {
+    "name": "severed-link",
+    "start": "2005-12-03T15:01:00Z",
+    "records": [
+      {
+        "id": "L4599160",
+        "timestamp": "2005-12-03T15:01:12Z",
+        "component": "APP",
+        "severity": "FATAL",
+        "message": "ciod: Error reading message prefix on CioStream socket to 172.16.96.116:41609, Link has been severed"
+      },
+      {
+        "id": "L4599161",
+        "timestamp": "2005-12-03T15:01:12Z",
+        "component": "APP",
+        "severity": "FATAL",
+        "message": "ciod: Error reading message prefix on CioStream socket to 172.16.96.116:41608, Link has been severed"
+      },
+      {
+        "id": "L4599229",
+        "timestamp": "2005-12-03T15:01:14Z",
+        "component": "APP",
+        "severity": "FATAL",
+        "message": "ciod: Error reading message prefix after LOAD_MESSAGE on CioStream socket to 172.16.96.116:42238: Link has been severed"
+      }
+    ],
+    "causes": {
+      "A socket read failed because the link had been severed.": [
+        "L4599160",
+        "L4599161",
+        "L4599229"
+      ]
+    }
+  },
+  {
+    "name": "mount-symptom",
+    "start": "2005-12-04T19:58:00Z",
+    "records": [
+      {
+        "id": "L4617389",
+        "timestamp": "2005-12-04T19:58:00Z",
+        "component": "KERNEL",
+        "severity": "FATAL",
+        "message": "Lustre mount FAILED : bglio524 : block_id : location"
+      }
+    ],
+    "causes": {}
+  },
+  {
+    "name": "directory-io-error",
+    "start": "2005-12-12T03:20:00Z",
+    "records": [
+      {
+        "id": "L4673821",
+        "timestamp": "2005-12-12T03:20:00Z",
+        "component": "APP",
+        "severity": "FATAL",
+        "message": "ciod: LOGIN chdir(/p/gb1/stella/RAPTOR/2183) failed: Input/output error"
+      }
+    ],
+    "causes": {
+      "A login directory change failed because the system returned an I/O error.": [
+        "L4673821"
+      ]
+    }
+  },
+  {
+    "name": "legacy-previews-only",
+    "start": "2010-01-01T00:00:00Z",
+    "synthetic": true,
+    "records": [],
+    "causes": {},
+    "legacy": true
+  },
+  {
+    "name": "empty-fatal-message",
+    "start": "2010-01-01T00:00:00Z",
+    "synthetic": true,
+    "records": [
+      {
+        "id": "L1",
+        "timestamp": "2010-01-01T00:00:00Z",
+        "component": "KERNEL",
+        "severity": "FATAL",
+        "message": ""
+      }
+    ],
+    "causes": {}
+  },
+  {
+    "name": "hypothetical-diagnostic",
+    "start": "2010-01-01T00:00:00Z",
+    "synthetic": true,
+    "records": [
+      {
+        "id": "L1",
+        "timestamp": "2010-01-01T00:00:00Z",
+        "component": "APP",
+        "severity": "FATAL",
+        "message": "Simulation only: ciod: Error loading app: invalid or missing program image, Permission denied"
+      }
+    ],
+    "causes": {}
+  },
+  {
+    "name": "negated-symptom",
+    "start": "2010-01-01T00:00:00Z",
+    "synthetic": true,
+    "records": [
+      {
+        "id": "L1",
+        "timestamp": "2010-01-01T00:00:00Z",
+        "component": "KERNEL",
+        "severity": "INFO",
+        "message": "No disk failure detected."
+      }
+    ],
+    "causes": {}
+  },
+  {
+    "name": "two-distinct-operations",
+    "start": "2010-01-01T00:00:00Z",
+    "synthetic": true,
+    "records": [
+      {
+        "id": "L1",
+        "timestamp": "2010-01-01T00:00:00Z",
+        "component": "APP",
+        "severity": "FATAL",
+        "message": "ciod: Error loading app: invalid or missing program image, Permission denied"
+      },
+      {
+        "id": "L2",
+        "timestamp": "2010-01-01T00:00:00Z",
+        "component": "APP",
+        "severity": "FATAL",
+        "message": "ciod: LOGIN chdir(/test) failed: No such file or directory"
+      }
+    ],
+    "causes": {
+      "A program load failed because access was denied.": [
+        "L1"
+      ],
+      "A login directory change failed because the named path could not be found.": [
+        "L2"
+      ]
+    }
+  },
+  {
+    "name": "unfamiliar-explicit-cause",
+    "start": "2010-01-01T00:00:00Z",
+    "synthetic": true,
+    "records": [
+      {
+        "id": "L1",
+        "timestamp": "2010-01-01T00:00:00Z",
+        "component": "STORAGE",
+        "severity": "ERROR",
+        "message": "A checkpoint write failed because the volume quota was exhausted."
+      }
+    ],
+    "causes": {
+      "A checkpoint write failed because the volume quota was exhausted.": [
+        "L1"
+      ]
+    }
+  }
+]
