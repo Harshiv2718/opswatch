@@ -175,8 +175,51 @@ function renderEventRow(event) {
   const content = node('div', 'evidence-content'); content.append(node('h3', '', 'Source message excerpts'), node('p', 'evidence-help', 'Recorded messages returned with this window. Excerpts may be truncated by the evaluation pipeline.'));
   if (event.messages.length) { const messages = node('ol', 'message-list'); for (const message of event.messages) messages.append(node('li', '', message)); content.append(messages); }
   else content.append(node('p', 'not-reported', 'No source message excerpts were returned for this window.'));
+  if (event.predicted_anomaly) content.append(investigationPanel(event));
   cell.append(content); details.append(cell);
   return [row, details];
+}
+
+function investigationPanel(event) {
+  const panel = node('section', 'investigation');
+  const button = node('button', 'window-button', 'Why was this window flagged?');
+  button.type = 'button';
+  const answer = node('div', 'investigation-answer');
+  answer.setAttribute('aria-live', 'polite');
+  button.addEventListener('click', async () => {
+    button.disabled = true;
+    answer.textContent = 'Retrieving window and source records…';
+    try {
+      const result = await fetchJson('/api/investigation?window=' + encodeURIComponent(event.window_start || event.timestamp));
+      answer.replaceChildren(node('p', '', result.decision));
+      const recordId = (id) => `evidence-${event._index}-${id}`;
+      for (const claim of result.claims) {
+        const item = node('p', '', claim.text);
+        for (const id of claim.citations) {
+          const ref = node('a', '', `[${id}]`);
+          ref.href = '#' + recordId(id);
+          item.append(' ', ref);
+        }
+        answer.append(item);
+      }
+      answer.append(node('p', '', result.assessment));
+      if (result.records.length) {
+        answer.append(node('h3', '', `Source records · ${result.records.length} of ${result.total_records}`));
+        const list = node('ul', 'message-list');
+        for (const r of result.records) {
+          const row = node('li', '', `${r.id} · ${r.timestamp} · ${r.component} ${r.severity} · ${r.message || '(empty message)'}`);
+          row.id = recordId(r.id);
+          list.append(row);
+        }
+        answer.append(list);
+      }
+    } catch (error) {
+      answer.textContent = error.message;
+      button.disabled = false;
+    }
+  });
+  panel.append(button, answer);
+  return panel;
 }
 
 function renderScoreChart() {

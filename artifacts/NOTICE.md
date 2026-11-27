@@ -1,6 +1,6 @@
 # Source data notice for exported log excerpts
 
-The message previews in `events.json` come from the BGL dataset distributed by Loghub, https://github.com/logpai/loghub, Zenodo release https://zenodo.org/records/8196385. They are historical research examples, not logs from this application's users.
+The message previews, numbered investigation records in `events.json`, and historical test records in `evals/investigation_cases.json` come from the BGL dataset distributed by Loghub, https://github.com/logpai/loghub, Zenodo release https://zenodo.org/records/8196385. They are historical research examples, not logs from this application's users.
 
 Publisher's dataset notice:
 

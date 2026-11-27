@@ -37,6 +37,21 @@ class ServerTests(unittest.TestCase):
         with urlopen(self.base + "/api/report") as response:
             self.assertEqual(json.load(response)["status"], "not_ready")
 
+    def test_investigation_handles_legacy_data_and_invalid_selections(self):
+        events = [{"timestamp": "old", "score": 0.8, "predicted_anomaly": True, "log_count": 1,
+                   "messages": ["A preview without a traceable source row."]},
+                  {"timestamp": "normal", "predicted_anomaly": False}]
+        (server.ARTIFACTS / "events.json").write_text(json.dumps({"events": events}))
+        with urlopen(self.base + "/api/investigation?window=old") as response:
+            result = json.load(response)
+        self.assertEqual(result["records"], [])
+        self.assertIn("Insufficient evidence", result["assessment"])
+        for query, status in [("", 400), ("?window=old&window=normal", 400), ("?window=normal", 404),
+                              ("?window=missing", 404)]:
+            with self.subTest(query=query), self.assertRaises(HTTPError) as raised:
+                urlopen(self.base + "/api/investigation" + query)
+            self.assertEqual(raised.exception.code, status)
+
     def test_artifact_served_without_directory_access(self):
         (server.ARTIFACTS / "report.json").write_text('{"status":"ready"}', encoding="utf-8")
         with urlopen(self.base + "/api/report") as response:

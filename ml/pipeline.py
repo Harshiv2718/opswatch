@@ -73,7 +73,10 @@ class Window:
     actual_anomaly: bool = False
     messages: list = field(default_factory=list)
 
-    def add(self, record: Record):
+    examples: list = field(default_factory=list)
+    longest: tuple | None = None
+
+    def add(self, record: Record, line_number=None):
         self.count += 1
         self.errors += record.severity in {"ERROR", "FAILURE", "SEVERE"}
         self.fatals += record.severity == "FATAL"
@@ -86,6 +89,10 @@ class Window:
         excerpt = f"{record.component} {record.severity}: {record.message[:240]}"
         if len(self.messages) < 3 and excerpt not in self.messages:
             self.messages.append(excerpt)
+            if line_number is not None:
+                self.examples.append((line_number, record))
+        if line_number is not None and (self.longest is None or len(record.message) > len(self.longest[1].message)):
+            self.longest = (line_number, record)
 
     def features(self):
         return [math.log1p(self.count), math.log1p(self.errors), math.log1p(self.fatals),
@@ -126,7 +133,7 @@ def aggregate(path: Path, window_seconds: int = 60, *, labeled: bool = True):
         bucket = record.timestamp // window_seconds * window_seconds
         if bucket not in windows:
             windows[bucket] = Window(bucket)
-        windows[bucket].add(record)
+        windows[bucket].add(record, line_number)
         rows += 1
         alerts += bool(record.alert)
     if not rows:
@@ -198,17 +205,39 @@ def write_json(path, value):
     temporary.replace(path)
 
 
-def event_rows(windows, scores, threshold, *, labels=True, limit=500):
+def investigation_evidence(window, model, threshold):
+    features = window.features()
+    scaled = model[0].transform([features])[0]
+    contributions = scaled * model[-1].coef_[0]
+    top = int(np.argmax(contributions))
+    observed = round(math.expm1(features[top])) if FEATURE_NAMES[top].startswith("log_") else features[top]
+    examples = dict(window.examples)
+    if window.longest:
+        examples.update([window.longest])
+    return {
+        "threshold": float(threshold),
+        "driver": {"feature": FEATURE_NAMES[top], "observed": observed, "log_odds": float(contributions[top])} if contributions[top] > 0 else None,
+        "records": [{"id": f"L{number}", "timestamp": iso(record.timestamp),
+                     "component": record.component, "severity": record.severity, "message": record.message}
+                    for number, record in sorted(examples.items())],
+    }
+
+
+def event_rows(windows, scores, threshold, *, model, labels=True, limit=500):
     # A deterministic chronological sample of the test period, not top-score cherry-picking.
     if len(windows) <= limit:
         indices = range(len(windows))
     else:
         indices = np.linspace(0, len(windows) - 1, limit, dtype=int)
-    return [{"timestamp": iso(windows[index].start), "window_start": iso(windows[index].start),
+    rows = [{"timestamp": iso(windows[index].start), "window_start": iso(windows[index].start),
              "score": float(scores[index]), "predicted_anomaly": bool(scores[index] >= threshold),
              "actual_anomaly": bool(windows[index].actual_anomaly) if labels else None,
              "messages": windows[index].messages, "log_count": windows[index].count}
             for index in indices]
+    for row, index in zip(rows, indices):
+        if row["predicted_anomaly"]:
+            row["investigation"] = investigation_evidence(windows[index], model, threshold)
+    return rows
 
 
 def train(input_path: Path, output: Path, *, scope: str, window_seconds=60):
@@ -262,7 +291,7 @@ def train(input_path: Path, output: Path, *, scope: str, window_seconds=60):
     output.mkdir(parents=True, exist_ok=True)
     joblib.dump({"model": model, "threshold": threshold, "window_seconds": window_seconds, "feature_names": FEATURE_NAMES, "schema_version": 1}, output / "model.joblib")
     write_json(output / "report.json", report)
-    events = event_rows(test_windows, test_scores, threshold)
+    events = event_rows(test_windows, test_scores, threshold, model=model)
     write_json(output / "events.json", {"schema_version": 1, "scope": "held-out test windows; deterministic evenly spaced chronological sample", "total_windows": len(test_windows), "exported_windows": len(events), "events": events})
     return report
 
@@ -274,7 +303,7 @@ def score(input_path: Path, model_path: Path, output: Path, *, labeled=False):
     windows, counts = aggregate(input_path, saved["window_seconds"], labeled=labeled)
     features, labels = arrays(windows)
     scores = saved["model"].predict_proba(features)[:, 1]
-    events = event_rows(windows, scores, saved["threshold"], labels=labeled, limit=10_000)
+    events = event_rows(windows, scores, saved["threshold"], model=saved["model"], labels=labeled, limit=10_000)
     result = {"schema_version": 1, "scope": "user-supplied historical records; not held-out benchmark data; at most 10000 evenly spaced windows exported",
               "records": counts["records"], "threshold": saved["threshold"],
               "total_windows": len(windows), "exported_windows": len(events), "events": events}

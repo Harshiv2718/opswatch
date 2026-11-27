@@ -4,7 +4,9 @@ import json
 import mimetypes
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
-from urllib.parse import urlsplit
+from urllib.parse import parse_qs, urlsplit
+
+from investigation import InvestigationTools, WindowUnavailable, investigate
 
 ROOT = Path(__file__).resolve().parent
 WEB = ROOT / "web"
@@ -24,6 +26,20 @@ class Handler(BaseHTTPRequestHandler):
 
     def do_GET(self):
         path = urlsplit(self.path).path
+        if path == "/api/investigation":
+            starts = parse_qs(urlsplit(self.path).query).get("window", [])
+            status = 200
+            if len(starts) != 1:
+                status, result = 400, {"error": "Specify one window start."}
+            else:
+                try:
+                    events = json.loads((ARTIFACTS / "events.json").read_bytes())["events"]
+                    result = investigate(starts[0], InvestigationTools(events))
+                except (FileNotFoundError, WindowUnavailable):
+                    status, result = 404, {"error": "No exported flagged window at that time."}
+                except (OSError, ValueError, TypeError, AttributeError, LookupError):
+                    status, result = 500, {"error": "Investigation artifact is unreadable."}
+            return self.send_body(status, json.dumps(result).encode(), "application/json; charset=utf-8")
         if path in ("/api/report", "/api/events"):
             file = ARTIFACTS / ("report.json" if path.endswith("report") else "events.json")
             if file.is_file():

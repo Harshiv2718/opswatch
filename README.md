@@ -27,6 +27,32 @@ python server.py
 
 Open <http://127.0.0.1:8000>. The app uses the local saved report and 500 evenly sampled test windows; it makes no live monitoring claim. For a different port, run `python server.py --port 8080`. Stop the server with Ctrl+C. The server is intended for local research use, not public production deployment.
 
+## Investigate a flagged window
+
+In the event explorer, filter **Prediction** to **Predicted anomaly**, expand a timestamp, and select **Why was this window flagged?** Follow a bracketed line number to inspect the timestamp, component, severity, and complete message from the original BGL record.
+
+For example, at `2005-11-18T12:37:00Z`, the classifier scored the window 0.976457 against a 0.459783 threshold. Fatal record count contributed the most positive log-odds. Record `L4220801` reports that access was denied while loading a program. The historical alert label for this window was negative. At `2005-11-12T09:30:00Z`, a machine-check interrupt is recorded, but the assistant finds insufficient evidence to attribute an incident cause.
+
+The offline assistant uses two read tools, `get_flagged_window` and `lookup_log_records`. Its model explanation uses the score, threshold and largest positive standardized feature contribution from the full window. It looks up source lines by window and ID, recognizes a small set of affirmative BGL diagnostics, and limits causal statements to the individual operations they describe. No API key is required. The retained sample contains the first three distinct preview patterns plus the longest message, with full records and original one-based line numbers. It can miss relevant evidence elsewhere in the window. Earlier exports without record IDs support only a flag summary. Both training and scoring emit investigation evidence for new flagged windows.
+
+Request a single investigation or reproduce the evaluation:
+
+```sh
+curl 'http://127.0.0.1:8000/api/investigation?window=2005-11-18T12%3A37%3A00Z'
+python -m evals.investigations
+```
+
+The fixed suite contains nine historical windows and six synthetic edge cases. The scorer checks each record citation against a pinned claim, window, line ID and source record. Model-decision statements derive from the saved classifier trace and are tested separately. An invented cause is a causal assertion outside the case's annotated causes. The test for cause recall counts distinct supported causes, including two operations in one case.
+
+| Fixed-suite measure | Result |
+| --- | ---: |
+| Supported record citations / all record citations | 18 / 18 |
+| Cases with an invented cause / all cases | 0 / 15 |
+| Abstentions / cases with insufficient causal evidence | 7 / 7 |
+| Supported causes identified / annotated causes | 8 / 9 |
+
+The missed cause was an explicit quota error in an unfamiliar log format. These figures describe this deterministic assistant on the published cases. The case annotations and per-case scoring are in [evals/](evals/).
+
 ## Reproduce or extend the model
 
 For training, use Python 3.12 and install the pinned ML dependencies:

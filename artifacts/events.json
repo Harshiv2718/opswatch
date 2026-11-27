@@ -306,7 +306,45 @@
         "KERNEL FATAL: instruction address: 0x0014c98c",
         "KERNEL FATAL: machine check status register: 0x81000000"
       ],
-      "log_count": 157
+      "log_count": 157,
+      "investigation": {
+        "threshold": 0.4597826714634374,
+        "driver": {
+          "feature": "log_fatal_count",
+          "observed": 44,
+          "log_odds": 5.321380615337678
+        },
+        "records": [
+          {
+            "id": "L4192331",
+            "timestamp": "2005-11-12T09:30:05Z",
+            "component": "KERNEL",
+            "severity": "FATAL",
+            "message": "machine check interrupt"
+          },
+          {
+            "id": "L4192332",
+            "timestamp": "2005-11-12T09:30:05Z",
+            "component": "KERNEL",
+            "severity": "FATAL",
+            "message": "instruction address: 0x0014c98c"
+          },
+          {
+            "id": "L4192333",
+            "timestamp": "2005-11-12T09:30:06Z",
+            "component": "KERNEL",
+            "severity": "FATAL",
+            "message": "machine check status register: 0x81000000"
+          },
+          {
+            "id": "L4192367",
+            "timestamp": "2005-11-12T09:30:16Z",
+            "component": "KERNEL",
+            "severity": "INFO",
+            "message": "3 torus receiver x+ input pipe error(s) (dcr 0x02ec) detected and corrected"
+          }
+        ]
+      }
     },
     {
       "timestamp": "2005-11-12T21:09:00Z",
@@ -484,7 +522,24 @@
       "messages": [
         "KERNEL FATAL: MailboxMonitor::serviceMailboxes() lib_ido_error: -1019 socket closed"
       ],
-      "log_count": 12
+      "log_count": 12,
+      "investigation": {
+        "threshold": 0.4597826714634374,
+        "driver": {
+          "feature": "log_fatal_count",
+          "observed": 12,
+          "log_odds": 3.295414637828714
+        },
+        "records": [
+          {
+            "id": "L4199238",
+            "timestamp": "2005-11-15T12:17:53Z",
+            "component": "KERNEL",
+            "severity": "FATAL",
+            "message": "MailboxMonitor::serviceMailboxes() lib_ido_error: -1019 socket closed"
+          }
+        ]
+      }
     },
     {
       "timestamp": "2005-11-15T13:42:00Z",
@@ -635,7 +690,38 @@
         "KERNEL FATAL: Error receiving packet on tree network, expecting type 57 instead of type 3 (softheader=009756d5 8bfa0003 00000002 00000000) PSR0=00001f01 PSR1=00000000 PRXF=00000002 PIXF=00000007",
         "KERNEL FATAL: Error receiving packet on tree network, expecting type 57 instead of type 3 (softheader=009756d5 8bfa0003 00000002 00000000) PSR0=20021f01 PSR1=00000000 PRXF=00000002 PIXF=00000007"
       ],
-      "log_count": 1734
+      "log_count": 1734,
+      "investigation": {
+        "threshold": 0.4597826714634374,
+        "driver": {
+          "feature": "log_fatal_count",
+          "observed": 1734,
+          "log_odds": 11.28010857304667
+        },
+        "records": [
+          {
+            "id": "L4209930",
+            "timestamp": "2005-11-16T03:20:00Z",
+            "component": "KERNEL",
+            "severity": "FATAL",
+            "message": "rts: kernel terminated for reason 1004"
+          },
+          {
+            "id": "L4210430",
+            "timestamp": "2005-11-16T03:20:32Z",
+            "component": "KERNEL",
+            "severity": "FATAL",
+            "message": "Error receiving packet on tree network, expecting type 57 instead of type 3 (softheader=009756d5 8bfa0003 00000002 00000000) PSR0=00001f01 PSR1=00000000 PRXF=00000002 PIXF=00000007"
+          },
+          {
+            "id": "L4210439",
+            "timestamp": "2005-11-16T03:20:32Z",
+            "component": "KERNEL",
+            "severity": "FATAL",
+            "message": "Error receiving packet on tree network, expecting type 57 instead of type 3 (softheader=009756d5 8bfa0003 00000002 00000000) PSR0=20021f01 PSR1=00000000 PRXF=00000002 PIXF=00000007"
+          }
+        ]
+      }
     },
     {
       "timestamp": "2005-11-16T07:50:00Z",
@@ -745,7 +831,45 @@
         "KERNEL FATAL: machine check summary.............1",
         "KERNEL FATAL: instruction plb error.............0"
       ],
-      "log_count": 195
+      "log_count": 195,
+      "investigation": {
+        "threshold": 0.4597826714634374,
+        "driver": {
+          "feature": "log_fatal_count",
+          "observed": 195,
+          "log_odds": 7.7221863693327055
+        },
+        "records": [
+          {
+            "id": "L4214935",
+            "timestamp": "2005-11-17T12:22:14Z",
+            "component": "KERNEL",
+            "severity": "FATAL",
+            "message": "Machine Check Status Register: 0xa0800000"
+          },
+          {
+            "id": "L4214936",
+            "timestamp": "2005-11-17T12:22:14Z",
+            "component": "KERNEL",
+            "severity": "FATAL",
+            "message": "machine check summary.............1"
+          },
+          {
+            "id": "L4214937",
+            "timestamp": "2005-11-17T12:22:14Z",
+            "component": "KERNEL",
+            "severity": "FATAL",
+            "message": "instruction plb error.............0"
+          },
+          {
+            "id": "L4215055",
+            "timestamp": "2005-11-17T12:22:33Z",
+            "component": "KERNEL",
+            "severity": "FATAL",
+            "message": "msr=0x00003000 dear=0x00000000 esr=0x00000000 fpscr=0x00000000"
+          }
+        ]
+      }
     },
     {
       "timestamp": "2005-11-17T13:34:00Z",
@@ -758,7 +882,45 @@
         "APP FATAL: ciod: Error reading message prefix on CioStream socket to 172.16.96.116:43688, Link has been severed",
         "APP FATAL: ciod: Error reading message prefix on CioStream socket to 172.16.96.116:43560, Link has been severed"
       ],
-      "log_count": 414
+      "log_count": 414,
+      "investigation": {
+        "threshold": 0.4597826714634374,
+        "driver": {
+          "feature": "log_fatal_count",
+          "observed": 182,
+          "log_odds": 7.610212826157687
+        },
+        "records": [
+          {
+            "id": "L4216222",
+            "timestamp": "2005-11-17T13:34:00Z",
+            "component": "KERNEL",
+            "severity": "INFO",
+            "message": "ciod: Received signal 15, code=0, errno=0, address=0x000001b0"
+          },
+          {
+            "id": "L4216223",
+            "timestamp": "2005-11-17T13:34:00Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: Error reading message prefix on CioStream socket to 172.16.96.116:43688, Link has been severed"
+          },
+          {
+            "id": "L4216225",
+            "timestamp": "2005-11-17T13:34:00Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: Error reading message prefix on CioStream socket to 172.16.96.116:43560, Link has been severed"
+          },
+          {
+            "id": "L4216252",
+            "timestamp": "2005-11-17T13:34:04Z",
+            "component": "DISCOVERY",
+            "severity": "ERROR",
+            "message": "Node card status: no ALERTs are active. Clock Mode is Low. Clock Select is Midplane. Phy JTAG Reset is asserted. ASIC JTAG Reset is asserted. Temperature Mask is not active. No temperature error. Temperature Limit Error Latch is clear. PGOOD IS NOT ASSERTED. PGOOD ERROR LATCH IS ACTIVE. MPGOOD IS NOT OK. MPGOOD ERROR LATCH IS ACTIVE. The 2.5 volt rail is OK. The 1.5 volt rail is OK."
+          }
+        ]
+      }
     },
     {
       "timestamp": "2005-11-17T13:58:00Z",
@@ -867,7 +1029,24 @@
       "messages": [
         "APP FATAL: ciod: Error loading /bgl/apps/followup/SPaSM_static/SPaSM.V1R2M0: invalid or missing program image, Permission denied"
       ],
-      "log_count": 484
+      "log_count": 484,
+      "investigation": {
+        "threshold": 0.4597826714634374,
+        "driver": {
+          "feature": "log_fatal_count",
+          "observed": 484,
+          "log_odds": 9.200462212710287
+        },
+        "records": [
+          {
+            "id": "L4220801",
+            "timestamp": "2005-11-18T12:37:00Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: Error loading /bgl/apps/followup/SPaSM_static/SPaSM.V1R2M0: invalid or missing program image, Permission denied"
+          }
+        ]
+      }
     },
     {
       "timestamp": "2005-11-18T13:34:00Z",
@@ -880,7 +1059,38 @@
         "APP FATAL: ciod: Error reading message prefix on CioStream socket to 172.16.96.116:59217, Connection reset by peer",
         "APP FATAL: ciod: Error reading message prefix on CioStream socket to 172.16.96.116:59216, Connection reset by peer"
       ],
-      "log_count": 14
+      "log_count": 14,
+      "investigation": {
+        "threshold": 0.4597826714634374,
+        "driver": {
+          "feature": "log_fatal_count",
+          "observed": 13,
+          "log_odds": 3.4163284192320393
+        },
+        "records": [
+          {
+            "id": "L4221897",
+            "timestamp": "2005-11-18T13:34:56Z",
+            "component": "FATAL",
+            "severity": "Kill",
+            "message": "job 49747 timed out. Block freed."
+          },
+          {
+            "id": "L4221898",
+            "timestamp": "2005-11-18T13:34:57Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: Error reading message prefix on CioStream socket to 172.16.96.116:59217, Connection reset by peer"
+          },
+          {
+            "id": "L4221899",
+            "timestamp": "2005-11-18T13:34:58Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: Error reading message prefix on CioStream socket to 172.16.96.116:59216, Connection reset by peer"
+          }
+        ]
+      }
     },
     {
       "timestamp": "2005-11-18T14:16:00Z",
@@ -1011,7 +1221,45 @@
         "KERNEL FATAL: instruction address: 0x0014c8c0",
         "KERNEL FATAL: machine check status register: 0x91800000"
       ],
-      "log_count": 84
+      "log_count": 84,
+      "investigation": {
+        "threshold": 0.4597826714634374,
+        "driver": {
+          "feature": "log_fatal_count",
+          "observed": 17,
+          "log_odds": 3.8263703750640867
+        },
+        "records": [
+          {
+            "id": "L4230101",
+            "timestamp": "2005-11-20T02:49:36Z",
+            "component": "KERNEL",
+            "severity": "FATAL",
+            "message": "machine check interrupt (bit=0x1d): L2 dcache unit data parity error"
+          },
+          {
+            "id": "L4230102",
+            "timestamp": "2005-11-20T02:49:36Z",
+            "component": "KERNEL",
+            "severity": "FATAL",
+            "message": "instruction address: 0x0014c8c0"
+          },
+          {
+            "id": "L4230103",
+            "timestamp": "2005-11-20T02:49:36Z",
+            "component": "KERNEL",
+            "severity": "FATAL",
+            "message": "machine check status register: 0x91800000"
+          },
+          {
+            "id": "L4230121",
+            "timestamp": "2005-11-20T02:49:41Z",
+            "component": "KERNEL",
+            "severity": "INFO",
+            "message": "1 torus receiver x+ input pipe error(s) (dcr 0x02ec) detected and corrected"
+          }
+        ]
+      }
     },
     {
       "timestamp": "2005-11-20T10:02:00Z",
@@ -1071,7 +1319,45 @@
         "KERNEL FATAL: guaranteed data cache block touch........1",
         "KERNEL FATAL: force load/store alignment...............0"
       ],
-      "log_count": 17
+      "log_count": 17,
+      "investigation": {
+        "threshold": 0.4597826714634374,
+        "driver": {
+          "feature": "log_fatal_count",
+          "observed": 17,
+          "log_odds": 3.8263703750640867
+        },
+        "records": [
+          {
+            "id": "L4235241",
+            "timestamp": "2005-11-21T06:19:05Z",
+            "component": "KERNEL",
+            "severity": "FATAL",
+            "message": "guaranteed instruction cache block touch.0"
+          },
+          {
+            "id": "L4235242",
+            "timestamp": "2005-11-21T06:19:13Z",
+            "component": "KERNEL",
+            "severity": "FATAL",
+            "message": "guaranteed data cache block touch........1"
+          },
+          {
+            "id": "L4235243",
+            "timestamp": "2005-11-21T06:19:18Z",
+            "component": "KERNEL",
+            "severity": "FATAL",
+            "message": "force load/store alignment...............0"
+          },
+          {
+            "id": "L4235256",
+            "timestamp": "2005-11-21T06:19:21Z",
+            "component": "KERNEL",
+            "severity": "FATAL",
+            "message": "lr:0016af30 cr:20404882 xer:20000002 ctr:001c1554"
+          }
+        ]
+      }
     },
     {
       "timestamp": "2005-11-21T12:35:00Z",
@@ -1110,7 +1396,38 @@
         "APP FATAL: ciod: Error reading message prefix after LOAD_MESSAGE on CioStream socket to 172.16.96.116:43185: Link has been severed",
         "APP FATAL: ciod: Error reading message prefix after LOAD_MESSAGE on CioStream socket to 172.16.96.116:43191: Link has been severed"
       ],
-      "log_count": 285
+      "log_count": 285,
+      "investigation": {
+        "threshold": 0.4597826714634374,
+        "driver": {
+          "feature": "log_fatal_count",
+          "observed": 285,
+          "log_odds": 8.33872672223574
+        },
+        "records": [
+          {
+            "id": "L4238142",
+            "timestamp": "2005-11-21T14:38:10Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: Error reading message prefix after LOAD_MESSAGE on CioStream socket to 172.16.96.116:43186: Link has been severed"
+          },
+          {
+            "id": "L4238143",
+            "timestamp": "2005-11-21T14:38:10Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: Error reading message prefix after LOAD_MESSAGE on CioStream socket to 172.16.96.116:43185: Link has been severed"
+          },
+          {
+            "id": "L4238144",
+            "timestamp": "2005-11-21T14:38:10Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: Error reading message prefix after LOAD_MESSAGE on CioStream socket to 172.16.96.116:43191: Link has been severed"
+          }
+        ]
+      }
     },
     {
       "timestamp": "2005-11-21T14:50:00Z",
@@ -1123,7 +1440,38 @@
         "APP FATAL: ciod: Error reading message prefix after LOAD_MESSAGE on CioStream socket to 172.16.96.116:48418: Link has been severed",
         "APP FATAL: ciod: Error reading message prefix after LOAD_MESSAGE on CioStream socket to 172.16.96.116:48417: Link has been severed"
       ],
-      "log_count": 376
+      "log_count": 376,
+      "investigation": {
+        "threshold": 0.4597826714634374,
+        "driver": {
+          "feature": "log_fatal_count",
+          "observed": 172,
+          "log_odds": 7.518526380743617
+        },
+        "records": [
+          {
+            "id": "L4242382",
+            "timestamp": "2005-11-21T14:50:00Z",
+            "component": "KERNEL",
+            "severity": "INFO",
+            "message": "MACHINE CHECK DCR read timeout (mc=e08x iar 0x00000000 lr 0xc00045a4)"
+          },
+          {
+            "id": "L4242499",
+            "timestamp": "2005-11-21T14:50:19Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: Error reading message prefix after LOAD_MESSAGE on CioStream socket to 172.16.96.116:48418: Link has been severed"
+          },
+          {
+            "id": "L4242500",
+            "timestamp": "2005-11-21T14:50:19Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: Error reading message prefix after LOAD_MESSAGE on CioStream socket to 172.16.96.116:48417: Link has been severed"
+          }
+        ]
+      }
     },
     {
       "timestamp": "2005-11-21T15:01:00Z",
@@ -1169,7 +1517,45 @@
         "KERNEL INFO: 1 ddr error(s) detected and corrected on rank 0, symbol 18 over 760 seconds",
         "KERNEL INFO: CE sym 18, at 0x1808d120, mask 0x80"
       ],
-      "log_count": 15
+      "log_count": 15,
+      "investigation": {
+        "threshold": 0.4597826714634374,
+        "driver": {
+          "feature": "log_distinct_components",
+          "observed": 2,
+          "log_odds": 2.2337070589219015
+        },
+        "records": [
+          {
+            "id": "L4254986",
+            "timestamp": "2005-11-21T19:06:07Z",
+            "component": "KERNEL",
+            "severity": "INFO",
+            "message": "32 L3 EDRAM error(s) (dcr 0x0157) detected and corrected over 759 seconds"
+          },
+          {
+            "id": "L4254987",
+            "timestamp": "2005-11-21T19:06:07Z",
+            "component": "KERNEL",
+            "severity": "INFO",
+            "message": "1 ddr error(s) detected and corrected on rank 0, symbol 18 over 760 seconds"
+          },
+          {
+            "id": "L4254988",
+            "timestamp": "2005-11-21T19:06:08Z",
+            "component": "KERNEL",
+            "severity": "INFO",
+            "message": "CE sym 18, at 0x1808d120, mask 0x80"
+          },
+          {
+            "id": "L4254997",
+            "timestamp": "2005-11-21T19:06:58Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: Error reading message prefix on CioStream socket to 172.16.96.116:41739, Connection timed out"
+          }
+        ]
+      }
     },
     {
       "timestamp": "2005-11-21T21:42:00Z",
@@ -1182,7 +1568,38 @@
         "KERNEL INFO: ciod: Received signal 15, code=0, errno=0, address=0x0000044d",
         "APP FATAL: ciod: Error reading message prefix on CioStream socket to 172.16.96.116:53366, Connection reset by peer"
       ],
-      "log_count": 337
+      "log_count": 337,
+      "investigation": {
+        "threshold": 0.4597826714634374,
+        "driver": {
+          "feature": "log_fatal_count",
+          "observed": 198,
+          "log_odds": 7.746970482251204
+        },
+        "records": [
+          {
+            "id": "L4257061",
+            "timestamp": "2005-11-21T21:42:00Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: Error reading message prefix on CioStream socket to 172.16.96.116:53046, Connection reset by peer"
+          },
+          {
+            "id": "L4257062",
+            "timestamp": "2005-11-21T21:42:00Z",
+            "component": "KERNEL",
+            "severity": "INFO",
+            "message": "ciod: Received signal 15, code=0, errno=0, address=0x0000044d"
+          },
+          {
+            "id": "L4257063",
+            "timestamp": "2005-11-21T21:42:00Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: Error reading message prefix on CioStream socket to 172.16.96.116:53366, Connection reset by peer"
+          }
+        ]
+      }
     },
     {
       "timestamp": "2005-11-21T22:56:00Z",
@@ -1195,7 +1612,38 @@
         "APP FATAL: ciod: Error reading message prefix on CioStream socket to 172.16.96.116:41485, Connection reset by peer",
         "APP FATAL: ciod: Error reading message prefix on CioStream socket to 172.16.96.116:41505, Connection reset by peer"
       ],
-      "log_count": 198
+      "log_count": 198,
+      "investigation": {
+        "threshold": 0.4597826714634374,
+        "driver": {
+          "feature": "log_fatal_count",
+          "observed": 198,
+          "log_odds": 7.746970482251204
+        },
+        "records": [
+          {
+            "id": "L4258972",
+            "timestamp": "2005-11-21T22:56:00Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: Error reading message prefix on CioStream socket to 172.16.96.116:41441, Connection reset by peer"
+          },
+          {
+            "id": "L4258973",
+            "timestamp": "2005-11-21T22:56:00Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: Error reading message prefix on CioStream socket to 172.16.96.116:41485, Connection reset by peer"
+          },
+          {
+            "id": "L4258974",
+            "timestamp": "2005-11-21T22:56:00Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: Error reading message prefix on CioStream socket to 172.16.96.116:41505, Connection reset by peer"
+          }
+        ]
+      }
     },
     {
       "timestamp": "2005-11-22T01:53:00Z",
@@ -1419,7 +1867,24 @@
       "messages": [
         "APP FATAL: ciod: Error loading verbose: invalid or missing program image, No such file or directory"
       ],
-      "log_count": 8
+      "log_count": 8,
+      "investigation": {
+        "threshold": 0.4597826714634374,
+        "driver": {
+          "feature": "log_fatal_count",
+          "observed": 8,
+          "log_odds": 2.695438786533945
+        },
+        "records": [
+          {
+            "id": "L4269960",
+            "timestamp": "2005-11-23T02:25:36Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: Error loading verbose: invalid or missing program image, No such file or directory"
+          }
+        ]
+      }
     },
     {
       "timestamp": "2005-11-23T04:34:00Z",
@@ -1481,7 +1946,38 @@
         "APP FATAL: ciod: Error reading message prefix on CioStream socket to 172.16.96.116:38495, Link has been severed",
         "APP FATAL: ciod: Error reading message prefix on CioStream socket to 172.16.96.116:38499, Link has been severed"
       ],
-      "log_count": 31
+      "log_count": 31,
+      "investigation": {
+        "threshold": 0.4597826714634374,
+        "driver": {
+          "feature": "log_fatal_count",
+          "observed": 31,
+          "log_odds": 4.765128411782089
+        },
+        "records": [
+          {
+            "id": "L4272960",
+            "timestamp": "2005-11-23T23:52:38Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: Error reading message prefix on CioStream socket to 172.16.96.116:38496, Link has been severed"
+          },
+          {
+            "id": "L4272961",
+            "timestamp": "2005-11-23T23:52:38Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: Error reading message prefix on CioStream socket to 172.16.96.116:38495, Link has been severed"
+          },
+          {
+            "id": "L4272962",
+            "timestamp": "2005-11-23T23:52:38Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: Error reading message prefix on CioStream socket to 172.16.96.116:38499, Link has been severed"
+          }
+        ]
+      }
     },
     {
       "timestamp": "2005-11-24T04:42:00Z",
@@ -1519,7 +2015,45 @@
         "KERNEL FATAL: instruction address: 0x002a2560",
         "KERNEL FATAL: Machine Check Status Register: 0xa0000000"
       ],
-      "log_count": 235
+      "log_count": 235,
+      "investigation": {
+        "threshold": 0.4597826714634374,
+        "driver": {
+          "feature": "log_fatal_count",
+          "observed": 176,
+          "log_odds": 7.555821476403249
+        },
+        "records": [
+          {
+            "id": "L4275292",
+            "timestamp": "2005-11-24T17:36:26Z",
+            "component": "KERNEL",
+            "severity": "FATAL",
+            "message": "machine check interrupt (bit=0x10): L2 dcache unit read return parity error"
+          },
+          {
+            "id": "L4275293",
+            "timestamp": "2005-11-24T17:36:26Z",
+            "component": "KERNEL",
+            "severity": "FATAL",
+            "message": "instruction address: 0x002a2560"
+          },
+          {
+            "id": "L4275294",
+            "timestamp": "2005-11-24T17:36:26Z",
+            "component": "KERNEL",
+            "severity": "FATAL",
+            "message": "Machine Check Status Register: 0xa0000000"
+          },
+          {
+            "id": "L4275454",
+            "timestamp": "2005-11-24T17:36:49Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: Error reading message prefix on CioStream socket to 172.16.96.116:41417, Link has been severed"
+          }
+        ]
+      }
     },
     {
       "timestamp": "2005-11-24T23:03:00Z",
@@ -1545,7 +2079,38 @@
         "APP FATAL: ciod: Error reading message prefix on CioStream socket to 172.16.96.116:54238, Link has been severed",
         "APP FATAL: ciod: Error reading message prefix on CioStream socket to 172.16.96.116:54365, Link has been severed"
       ],
-      "log_count": 354
+      "log_count": 354,
+      "investigation": {
+        "threshold": 0.4597826714634374,
+        "driver": {
+          "feature": "log_fatal_count",
+          "observed": 354,
+          "log_odds": 8.69135557685521
+        },
+        "records": [
+          {
+            "id": "L4279982",
+            "timestamp": "2005-11-25T06:07:00Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: Error reading message prefix on CioStream socket to 172.16.96.116:54239, Link has been severed"
+          },
+          {
+            "id": "L4279983",
+            "timestamp": "2005-11-25T06:07:00Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: Error reading message prefix on CioStream socket to 172.16.96.116:54238, Link has been severed"
+          },
+          {
+            "id": "L4279984",
+            "timestamp": "2005-11-25T06:07:00Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: Error reading message prefix on CioStream socket to 172.16.96.116:54365, Link has been severed"
+          }
+        ]
+      }
     },
     {
       "timestamp": "2005-11-25T07:51:00Z",
@@ -1660,7 +2225,38 @@
         "KERNEL INFO: ciod: Received signal 15, code=0, errno=0, address=0x000001f2",
         "APP FATAL: ciod: Error reading message prefix on CioStream socket to 172.16.96.116:54497, Link has been severed"
       ],
-      "log_count": 122
+      "log_count": 122,
+      "investigation": {
+        "threshold": 0.4597826714634374,
+        "driver": {
+          "feature": "log_fatal_count",
+          "observed": 78,
+          "log_odds": 6.239615244413039
+        },
+        "records": [
+          {
+            "id": "L4295281",
+            "timestamp": "2005-11-27T00:43:00Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: Error reading message prefix on CioStream socket to 172.16.96.116:54408, Link has been severed"
+          },
+          {
+            "id": "L4295282",
+            "timestamp": "2005-11-27T00:43:00Z",
+            "component": "KERNEL",
+            "severity": "INFO",
+            "message": "ciod: Received signal 15, code=0, errno=0, address=0x000001f2"
+          },
+          {
+            "id": "L4295285",
+            "timestamp": "2005-11-27T00:43:00Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: Error reading message prefix on CioStream socket to 172.16.96.116:54497, Link has been severed"
+          }
+        ]
+      }
     },
     {
       "timestamp": "2005-11-27T04:35:00Z",
@@ -1673,7 +2269,38 @@
         "KERNEL INFO: ciod: Received signal 15, code=0, errno=0, address=0x000001f2",
         "APP FATAL: ciod: Error reading message prefix on CioStream socket to 172.16.96.116:39533, Link has been severed"
       ],
-      "log_count": 360
+      "log_count": 360,
+      "investigation": {
+        "threshold": 0.4597826714634374,
+        "driver": {
+          "feature": "log_fatal_count",
+          "observed": 86,
+          "log_odds": 6.396998791701529
+        },
+        "records": [
+          {
+            "id": "L4298110",
+            "timestamp": "2005-11-27T04:35:00Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: Error reading message prefix on CioStream socket to 172.16.96.116:39643, Link has been severed"
+          },
+          {
+            "id": "L4298111",
+            "timestamp": "2005-11-27T04:35:00Z",
+            "component": "KERNEL",
+            "severity": "INFO",
+            "message": "ciod: Received signal 15, code=0, errno=0, address=0x000001f2"
+          },
+          {
+            "id": "L4298115",
+            "timestamp": "2005-11-27T04:35:00Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: Error reading message prefix on CioStream socket to 172.16.96.116:39533, Link has been severed"
+          }
+        ]
+      }
     },
     {
       "timestamp": "2005-11-27T23:46:00Z",
@@ -1686,7 +2313,45 @@
         "KERNEL FATAL: instruction address: 0x002a2560",
         "KERNEL FATAL: Machine Check Status Register: 0xa0000000"
       ],
-      "log_count": 317
+      "log_count": 317,
+      "investigation": {
+        "threshold": 0.4597826714634374,
+        "driver": {
+          "feature": "log_fatal_count",
+          "observed": 161,
+          "log_odds": 7.411338692466657
+        },
+        "records": [
+          {
+            "id": "L4299368",
+            "timestamp": "2005-11-27T23:46:10Z",
+            "component": "KERNEL",
+            "severity": "FATAL",
+            "message": "machine check interrupt (bit=0x10): L2 dcache unit read return parity error"
+          },
+          {
+            "id": "L4299369",
+            "timestamp": "2005-11-27T23:46:10Z",
+            "component": "KERNEL",
+            "severity": "FATAL",
+            "message": "instruction address: 0x002a2560"
+          },
+          {
+            "id": "L4299370",
+            "timestamp": "2005-11-27T23:46:10Z",
+            "component": "KERNEL",
+            "severity": "FATAL",
+            "message": "Machine Check Status Register: 0xa0000000"
+          },
+          {
+            "id": "L4299503",
+            "timestamp": "2005-11-27T23:46:30Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: Error reading message prefix on CioStream socket to 172.16.96.116:40722, Link has been severed"
+          }
+        ]
+      }
     },
     {
       "timestamp": "2005-11-28T12:49:00Z",
@@ -1853,7 +2518,45 @@
         "KERNEL FATAL: instruction address: 0x00019300",
         "KERNEL FATAL: Machine Check Status Register: 0x81000000"
       ],
-      "log_count": 58
+      "log_count": 58,
+      "investigation": {
+        "threshold": 0.4597826714634374,
+        "driver": {
+          "feature": "log_fatal_count",
+          "observed": 58,
+          "log_odds": 5.763337317701967
+        },
+        "records": [
+          {
+            "id": "L4310682",
+            "timestamp": "2005-11-30T01:33:50Z",
+            "component": "KERNEL",
+            "severity": "FATAL",
+            "message": "machine check interrupt"
+          },
+          {
+            "id": "L4310683",
+            "timestamp": "2005-11-30T01:33:50Z",
+            "component": "KERNEL",
+            "severity": "FATAL",
+            "message": "instruction address: 0x00019300"
+          },
+          {
+            "id": "L4310684",
+            "timestamp": "2005-11-30T01:33:51Z",
+            "component": "KERNEL",
+            "severity": "FATAL",
+            "message": "Machine Check Status Register: 0x81000000"
+          },
+          {
+            "id": "L4310727",
+            "timestamp": "2005-11-30T01:33:57Z",
+            "component": "KERNEL",
+            "severity": "FATAL",
+            "message": "msr=0x00003000 dear=0x00000000 esr=0x00000000 fpscr=0x00004000"
+          }
+        ]
+      }
     },
     {
       "timestamp": "2005-11-30T02:29:00Z",
@@ -2003,7 +2706,24 @@
       "messages": [
         "APP FATAL: ciod: LOGIN chdir(/g/g0/spelce1/Linpack_SWL) failed: No such file or directory"
       ],
-      "log_count": 363
+      "log_count": 363,
+      "investigation": {
+        "threshold": 0.4597826714634374,
+        "driver": {
+          "feature": "log_fatal_count",
+          "observed": 363,
+          "log_odds": 8.732204176459522
+        },
+        "records": [
+          {
+            "id": "L4319141",
+            "timestamp": "2005-12-01T03:56:00Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: LOGIN chdir(/g/g0/spelce1/Linpack_SWL) failed: No such file or directory"
+          }
+        ]
+      }
     },
     {
       "timestamp": "2005-12-01T05:05:00Z",
@@ -2268,7 +2988,38 @@
         "APP FATAL: ciod: Error reading message prefix on CioStream socket to 172.16.96.116:59302, Link has been severed",
         "APP FATAL: ciod: Error reading message prefix on CioStream socket to 172.16.96.116:59301, Link has been severed"
       ],
-      "log_count": 132
+      "log_count": 132,
+      "investigation": {
+        "threshold": 0.4597826714634374,
+        "driver": {
+          "feature": "log_fatal_count",
+          "observed": 132,
+          "log_odds": 7.089512241441552
+        },
+        "records": [
+          {
+            "id": "L4594285",
+            "timestamp": "2005-12-02T03:32:00Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: Error reading message prefix on CioStream socket to 172.16.96.116:59529, Link has been severed"
+          },
+          {
+            "id": "L4594286",
+            "timestamp": "2005-12-02T03:32:00Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: Error reading message prefix on CioStream socket to 172.16.96.116:59302, Link has been severed"
+          },
+          {
+            "id": "L4594287",
+            "timestamp": "2005-12-02T03:32:00Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: Error reading message prefix on CioStream socket to 172.16.96.116:59301, Link has been severed"
+          }
+        ]
+      }
     },
     {
       "timestamp": "2005-12-02T15:48:00Z",
@@ -2279,7 +3030,24 @@
       "messages": [
         "APP FATAL: ciod: LOGIN chdir(/home/loewe/romio_tests) failed: No such file or directory"
       ],
-      "log_count": 48
+      "log_count": 48,
+      "investigation": {
+        "threshold": 0.4597826714634374,
+        "driver": {
+          "feature": "log_fatal_count",
+          "observed": 48,
+          "log_odds": 5.460323192272418
+        },
+        "records": [
+          {
+            "id": "L4595475",
+            "timestamp": "2005-12-02T15:48:08Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: LOGIN chdir(/home/loewe/romio_tests) failed: No such file or directory"
+          }
+        ]
+      }
     },
     {
       "timestamp": "2005-12-02T20:33:00Z",
@@ -2292,7 +3060,45 @@
         "KERNEL INFO: CE sym 9, at 0x1ff966c0, mask 0x02",
         "KERNEL INFO: CE sym 9, at 0x0001a300, mask 0x20"
       ],
-      "log_count": 360
+      "log_count": 360,
+      "investigation": {
+        "threshold": 0.4597826714634374,
+        "driver": {
+          "feature": "log_fatal_count",
+          "observed": 347,
+          "log_odds": 8.658861968761817
+        },
+        "records": [
+          {
+            "id": "L4595820",
+            "timestamp": "2005-12-02T20:33:00Z",
+            "component": "KERNEL",
+            "severity": "INFO",
+            "message": "CE sym 9, at 0x1ff7f200, mask 0x20"
+          },
+          {
+            "id": "L4595821",
+            "timestamp": "2005-12-02T20:33:00Z",
+            "component": "KERNEL",
+            "severity": "INFO",
+            "message": "CE sym 9, at 0x1ff966c0, mask 0x02"
+          },
+          {
+            "id": "L4595822",
+            "timestamp": "2005-12-02T20:33:00Z",
+            "component": "KERNEL",
+            "severity": "INFO",
+            "message": "CE sym 9, at 0x0001a300, mask 0x20"
+          },
+          {
+            "id": "L4595833",
+            "timestamp": "2005-12-02T20:33:02Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: Error reading message prefix on CioStream socket to 172.16.96.116:52879, Link has been severed"
+          }
+        ]
+      }
     },
     {
       "timestamp": "2005-12-02T23:00:00Z",
@@ -2380,7 +3186,45 @@
         "APP FATAL: ciod: Error reading message prefix on CioStream socket to 172.16.96.116:41609, Link has been severed",
         "APP FATAL: ciod: Error reading message prefix on CioStream socket to 172.16.96.116:41608, Link has been severed"
       ],
-      "log_count": 525
+      "log_count": 525,
+      "investigation": {
+        "threshold": 0.4597826714634374,
+        "driver": {
+          "feature": "log_fatal_count",
+          "observed": 521,
+          "log_odds": 9.320414538932958
+        },
+        "records": [
+          {
+            "id": "L4599159",
+            "timestamp": "2005-12-03T15:01:11Z",
+            "component": "FATAL",
+            "severity": "Kill",
+            "message": "job 53834 timed out. Block freed."
+          },
+          {
+            "id": "L4599160",
+            "timestamp": "2005-12-03T15:01:12Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: Error reading message prefix on CioStream socket to 172.16.96.116:41609, Link has been severed"
+          },
+          {
+            "id": "L4599161",
+            "timestamp": "2005-12-03T15:01:12Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: Error reading message prefix on CioStream socket to 172.16.96.116:41608, Link has been severed"
+          },
+          {
+            "id": "L4599229",
+            "timestamp": "2005-12-03T15:01:14Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: Error reading message prefix after LOAD_MESSAGE on CioStream socket to 172.16.96.116:42238: Link has been severed"
+          }
+        ]
+      }
     },
     {
       "timestamp": "2005-12-03T15:30:00Z",
@@ -2521,7 +3365,24 @@
       "messages": [
         "APP FATAL: ciod: LOGIN chdir(/p/gb/rfisher/StirTurbDirect/16) failed: No such file or directory"
       ],
-      "log_count": 117
+      "log_count": 117,
+      "investigation": {
+        "threshold": 0.4597826714634374,
+        "driver": {
+          "feature": "log_fatal_count",
+          "observed": 117,
+          "log_odds": 6.894268906232108
+        },
+        "records": [
+          {
+            "id": "L4606553",
+            "timestamp": "2005-12-03T21:27:40Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: LOGIN chdir(/p/gb/rfisher/StirTurbDirect/16) failed: No such file or directory"
+          }
+        ]
+      }
     },
     {
       "timestamp": "2005-12-03T22:14:00Z",
@@ -2559,7 +3420,45 @@
         "KERNEL FATAL: machine check summary.............1",
         "KERNEL FATAL: instruction plb error.............0"
       ],
-      "log_count": 163
+      "log_count": 163,
+      "investigation": {
+        "threshold": 0.4597826714634374,
+        "driver": {
+          "feature": "log_fatal_count",
+          "observed": 163,
+          "log_odds": 7.431358445407241
+        },
+        "records": [
+          {
+            "id": "L4607954",
+            "timestamp": "2005-12-04T02:36:32Z",
+            "component": "KERNEL",
+            "severity": "FATAL",
+            "message": "Machine Check Status Register: 0xa0800000"
+          },
+          {
+            "id": "L4607955",
+            "timestamp": "2005-12-04T02:36:32Z",
+            "component": "KERNEL",
+            "severity": "FATAL",
+            "message": "machine check summary.............1"
+          },
+          {
+            "id": "L4607956",
+            "timestamp": "2005-12-04T02:36:32Z",
+            "component": "KERNEL",
+            "severity": "FATAL",
+            "message": "instruction plb error.............0"
+          },
+          {
+            "id": "L4608074",
+            "timestamp": "2005-12-04T02:36:52Z",
+            "component": "KERNEL",
+            "severity": "FATAL",
+            "message": "msr=0x00003000 dear=0x00000000 esr=0x00000000 fpscr=0x00000000"
+          }
+        ]
+      }
     },
     {
       "timestamp": "2005-12-04T05:47:00Z",
@@ -2657,7 +3556,45 @@
         "KERNEL FATAL: machine check summary.............1",
         "KERNEL FATAL: instruction plb error.............0"
       ],
-      "log_count": 195
+      "log_count": 195,
+      "investigation": {
+        "threshold": 0.4597826714634374,
+        "driver": {
+          "feature": "log_fatal_count",
+          "observed": 195,
+          "log_odds": 7.7221863693327055
+        },
+        "records": [
+          {
+            "id": "L4615916",
+            "timestamp": "2005-12-04T18:39:12Z",
+            "component": "KERNEL",
+            "severity": "FATAL",
+            "message": "Machine Check Status Register: 0xa0800000"
+          },
+          {
+            "id": "L4615917",
+            "timestamp": "2005-12-04T18:39:12Z",
+            "component": "KERNEL",
+            "severity": "FATAL",
+            "message": "machine check summary.............1"
+          },
+          {
+            "id": "L4615918",
+            "timestamp": "2005-12-04T18:39:12Z",
+            "component": "KERNEL",
+            "severity": "FATAL",
+            "message": "instruction plb error.............0"
+          },
+          {
+            "id": "L4616036",
+            "timestamp": "2005-12-04T18:39:29Z",
+            "component": "KERNEL",
+            "severity": "FATAL",
+            "message": "msr=0x00003000 dear=0x00000000 esr=0x00000000 fpscr=0x00000000"
+          }
+        ]
+      }
     },
     {
       "timestamp": "2005-12-04T19:25:00Z",
@@ -2683,7 +3620,38 @@
         "KERNEL FATAL: Lustre mount FAILED : bglio652 : block_id : location",
         "KERNEL FATAL: Lustre mount FAILED : bglio598 : block_id : location"
       ],
-      "log_count": 173
+      "log_count": 173,
+      "investigation": {
+        "threshold": 0.4597826714634374,
+        "driver": {
+          "feature": "log_fatal_count",
+          "observed": 173,
+          "log_odds": 7.527930380231673
+        },
+        "records": [
+          {
+            "id": "L4617389",
+            "timestamp": "2005-12-04T19:58:00Z",
+            "component": "KERNEL",
+            "severity": "FATAL",
+            "message": "Lustre mount FAILED : bglio524 : block_id : location"
+          },
+          {
+            "id": "L4617390",
+            "timestamp": "2005-12-04T19:58:00Z",
+            "component": "KERNEL",
+            "severity": "FATAL",
+            "message": "Lustre mount FAILED : bglio652 : block_id : location"
+          },
+          {
+            "id": "L4617391",
+            "timestamp": "2005-12-04T19:58:00Z",
+            "component": "KERNEL",
+            "severity": "FATAL",
+            "message": "Lustre mount FAILED : bglio598 : block_id : location"
+          }
+        ]
+      }
     },
     {
       "timestamp": "2005-12-05T20:36:00Z",
@@ -2720,7 +3688,45 @@
         "KERNEL FATAL: instruction address: 0x0020d74c",
         "KERNEL FATAL: Machine Check Status Register: 0x81000000"
       ],
-      "log_count": 142
+      "log_count": 142,
+      "investigation": {
+        "threshold": 0.4597826714634374,
+        "driver": {
+          "feature": "log_fatal_count",
+          "observed": 128,
+          "log_odds": 7.039688846653029
+        },
+        "records": [
+          {
+            "id": "L4619010",
+            "timestamp": "2005-12-05T21:23:01Z",
+            "component": "KERNEL",
+            "severity": "FATAL",
+            "message": "machine check interrupt"
+          },
+          {
+            "id": "L4619011",
+            "timestamp": "2005-12-05T21:23:01Z",
+            "component": "KERNEL",
+            "severity": "FATAL",
+            "message": "instruction address: 0x0020d74c"
+          },
+          {
+            "id": "L4619012",
+            "timestamp": "2005-12-05T21:23:02Z",
+            "component": "KERNEL",
+            "severity": "FATAL",
+            "message": "Machine Check Status Register: 0x81000000"
+          },
+          {
+            "id": "L4619144",
+            "timestamp": "2005-12-05T21:23:19Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: Error reading message prefix on CioStream socket to 172.16.96.116:41819, Link has been severed"
+          }
+        ]
+      }
     },
     {
       "timestamp": "2005-12-05T21:53:00Z",
@@ -2768,7 +3774,24 @@
       "messages": [
         "APP FATAL: ciod: LOGIN chdir(/p/gb1/glosli/Ta/1M_5000K/t186) failed: No such file or directory"
       ],
-      "log_count": 128
+      "log_count": 128,
+      "investigation": {
+        "threshold": 0.4597826714634374,
+        "driver": {
+          "feature": "log_fatal_count",
+          "observed": 128,
+          "log_odds": 7.039688846653029
+        },
+        "records": [
+          {
+            "id": "L4623356",
+            "timestamp": "2005-12-06T04:30:30Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: LOGIN chdir(/p/gb1/glosli/Ta/1M_5000K/t186) failed: No such file or directory"
+          }
+        ]
+      }
     },
     {
       "timestamp": "2005-12-06T13:08:00Z",
@@ -3109,7 +4132,24 @@
       "messages": [
         "APP FATAL: ciod: Error loading /p/gb1/light3/sppm_chkpt/sppm: not a CNK program image"
       ],
-      "log_count": 294
+      "log_count": 294,
+      "investigation": {
+        "threshold": 0.4597826714634374,
+        "driver": {
+          "feature": "log_fatal_count",
+          "observed": 294,
+          "log_odds": 8.3892791465057
+        },
+        "records": [
+          {
+            "id": "L4650153",
+            "timestamp": "2005-12-07T16:11:00Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: Error loading /p/gb1/light3/sppm_chkpt/sppm: not a CNK program image"
+          }
+        ]
+      }
     },
     {
       "timestamp": "2005-12-07T21:14:00Z",
@@ -3146,7 +4186,24 @@
       "messages": [
         "KERNEL FATAL: idoproxy communication failure: socket closed"
       ],
-      "log_count": 1
+      "log_count": 1,
+      "investigation": {
+        "threshold": 0.4597826714634374,
+        "driver": {
+          "feature": "failure_keyword_fraction",
+          "observed": 1.0,
+          "log_odds": 2.529154679101576
+        },
+        "records": [
+          {
+            "id": "L4650995",
+            "timestamp": "2005-12-08T16:13:15Z",
+            "component": "KERNEL",
+            "severity": "FATAL",
+            "message": "idoproxy communication failure: socket closed"
+          }
+        ]
+      }
     },
     {
       "timestamp": "2005-12-08T20:52:00Z",
@@ -3209,7 +4266,24 @@
       "messages": [
         "LINKCARD FATAL: MidplaneSwitchController::receiveTrain() iap failed: R63-M0-L2-U21-A, status=ffbffbff ec000000"
       ],
-      "log_count": 2
+      "log_count": 2,
+      "investigation": {
+        "threshold": 0.4597826714634374,
+        "driver": {
+          "feature": "failure_keyword_fraction",
+          "observed": 1.0,
+          "log_odds": 2.529154679101576
+        },
+        "records": [
+          {
+            "id": "L4651478",
+            "timestamp": "2005-12-09T02:08:50Z",
+            "component": "LINKCARD",
+            "severity": "FATAL",
+            "message": "MidplaneSwitchController::receiveTrain() iap failed: R63-M0-L2-U21-A, status=ffbffbff ec000000"
+          }
+        ]
+      }
     },
     {
       "timestamp": "2005-12-09T06:16:00Z",
@@ -3316,7 +4390,24 @@
       "messages": [
         "APP FATAL: ciod: Error loading /p/gb1/stella/SPASM/1348/spasm_DD: invalid or missing program image, Permission denied"
       ],
-      "log_count": 32
+      "log_count": 32,
+      "investigation": {
+        "threshold": 0.4597826714634374,
+        "driver": {
+          "feature": "log_fatal_count",
+          "observed": 32,
+          "log_odds": 4.815335123709542
+        },
+        "records": [
+          {
+            "id": "L4656151",
+            "timestamp": "2005-12-09T20:09:25Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: Error loading /p/gb1/stella/SPASM/1348/spasm_DD: invalid or missing program image, Permission denied"
+          }
+        ]
+      }
     },
     {
       "timestamp": "2005-12-09T20:21:00Z",
@@ -3329,7 +4420,38 @@
         "APP FATAL: ciod: Error loading /bgl/apps/SWL/stability/MDCASK/WORK/1383/inferno: invalid or missing program image, Permission denied",
         "APP FATAL: ciod: Error loading /bgl/apps/SWL/stability/HPL/WORK/1405./hpl_DD: invalid or missing program image, No such file or directory"
       ],
-      "log_count": 404
+      "log_count": 404,
+      "investigation": {
+        "threshold": 0.4597826714634374,
+        "driver": {
+          "feature": "log_fatal_count",
+          "observed": 404,
+          "log_odds": 8.906348932740247
+        },
+        "records": [
+          {
+            "id": "L4660281",
+            "timestamp": "2005-12-09T20:21:00Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: Error loading /bgl/apps/SWL/stability/MDCASK/WORK/1415/inferno: invalid or missing program image, Permission denied"
+          },
+          {
+            "id": "L4660282",
+            "timestamp": "2005-12-09T20:21:00Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: Error loading /bgl/apps/SWL/stability/MDCASK/WORK/1383/inferno: invalid or missing program image, Permission denied"
+          },
+          {
+            "id": "L4660283",
+            "timestamp": "2005-12-09T20:21:00Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: Error loading /bgl/apps/SWL/stability/HPL/WORK/1405./hpl_DD: invalid or missing program image, No such file or directory"
+          }
+        ]
+      }
     },
     {
       "timestamp": "2005-12-09T20:32:00Z",
@@ -3342,7 +4464,45 @@
         "APP FATAL: ciod: Error loading /p/gb1/stella/UMT2K/1372/umt2k_DD: invalid or missing program image, Permission denied",
         "APP FATAL: ciod: Error loading /p/gb1/stella/SPASM/1352/spasm_DD: invalid or missing program image, Permission denied"
       ],
-      "log_count": 431
+      "log_count": 431,
+      "investigation": {
+        "threshold": 0.4597826714634374,
+        "driver": {
+          "feature": "log_fatal_count",
+          "observed": 431,
+          "log_odds": 9.011649299355803
+        },
+        "records": [
+          {
+            "id": "L4664728",
+            "timestamp": "2005-12-09T20:32:00Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: Error loading /p/gb1/stella/SPPM/1312/sppm_DD: invalid or missing program image, Permission denied"
+          },
+          {
+            "id": "L4664729",
+            "timestamp": "2005-12-09T20:32:00Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: Error loading /p/gb1/stella/UMT2K/1372/umt2k_DD: invalid or missing program image, Permission denied"
+          },
+          {
+            "id": "L4664730",
+            "timestamp": "2005-12-09T20:32:00Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: Error loading /p/gb1/stella/SPASM/1352/spasm_DD: invalid or missing program image, Permission denied"
+          },
+          {
+            "id": "L4664734",
+            "timestamp": "2005-12-09T20:32:01Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: Error loading /bgl/apps/SWL/stability/MDCASK/WORK/1339/inferno: invalid or missing program image, Permission denied"
+          }
+        ]
+      }
     },
     {
       "timestamp": "2005-12-09T20:49:00Z",
@@ -3353,7 +4513,24 @@
       "messages": [
         "APP FATAL: ciod: Error loading /bgl/apps/SWL/stability/HPL/WORK/1501./hpl_DD: invalid or missing program image, No such file or directory"
       ],
-      "log_count": 488
+      "log_count": 488,
+      "investigation": {
+        "threshold": 0.4597826714634374,
+        "driver": {
+          "feature": "log_fatal_count",
+          "observed": 488,
+          "log_odds": 9.2138634329734
+        },
+        "records": [
+          {
+            "id": "L4668282",
+            "timestamp": "2005-12-09T20:49:00Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: Error loading /bgl/apps/SWL/stability/HPL/WORK/1501./hpl_DD: invalid or missing program image, No such file or directory"
+          }
+        ]
+      }
     },
     {
       "timestamp": "2005-12-09T21:48:00Z",
@@ -3449,7 +4626,38 @@
         "APP FATAL: ciod: Error reading message prefix on CioStream socket to 172.16.96.116:51567, Link has been severed",
         "APP FATAL: ciod: Error reading message prefix on CioStream socket to 172.16.96.116:51600, Link has been severed"
       ],
-      "log_count": 79
+      "log_count": 79,
+      "investigation": {
+        "threshold": 0.4597826714634374,
+        "driver": {
+          "feature": "log_fatal_count",
+          "observed": 79,
+          "log_odds": 6.260138652055678
+        },
+        "records": [
+          {
+            "id": "L4669785",
+            "timestamp": "2005-12-10T06:33:00Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: Error reading message prefix on CioStream socket to 172.16.96.116:51390, Link has been severed"
+          },
+          {
+            "id": "L4669786",
+            "timestamp": "2005-12-10T06:33:00Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: Error reading message prefix on CioStream socket to 172.16.96.116:51567, Link has been severed"
+          },
+          {
+            "id": "L4669787",
+            "timestamp": "2005-12-10T06:33:00Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: Error reading message prefix on CioStream socket to 172.16.96.116:51600, Link has been severed"
+          }
+        ]
+      }
     },
     {
       "timestamp": "2005-12-10T07:56:00Z",
@@ -3828,7 +5036,24 @@
       "messages": [
         "APP FATAL: ciod: LOGIN chdir(/p/gb1/stella/RAPTOR/2183) failed: Input/output error"
       ],
-      "log_count": 336
+      "log_count": 336,
+      "investigation": {
+        "threshold": 0.4597826714634374,
+        "driver": {
+          "feature": "log_fatal_count",
+          "observed": 336,
+          "log_odds": 8.606456052573169
+        },
+        "records": [
+          {
+            "id": "L4673821",
+            "timestamp": "2005-12-12T03:20:00Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: LOGIN chdir(/p/gb1/stella/RAPTOR/2183) failed: Input/output error"
+          }
+        ]
+      }
     },
     {
       "timestamp": "2005-12-12T04:15:00Z",
@@ -3899,7 +5124,38 @@
         "APP FATAL: ciod: Error reading message prefix on CioStream socket to 172.16.96.116:48882, Link has been severed",
         "APP FATAL: ciod: Error reading message prefix on CioStream socket to 172.16.96.116:48617, Link has been severed"
       ],
-      "log_count": 296
+      "log_count": 296,
+      "investigation": {
+        "threshold": 0.4597826714634374,
+        "driver": {
+          "feature": "log_fatal_count",
+          "observed": 296,
+          "log_odds": 8.400303441112113
+        },
+        "records": [
+          {
+            "id": "L4676953",
+            "timestamp": "2005-12-13T05:19:00Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: Error reading message prefix on CioStream socket to 172.16.96.116:48883, Link has been severed"
+          },
+          {
+            "id": "L4676954",
+            "timestamp": "2005-12-13T05:19:00Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: Error reading message prefix on CioStream socket to 172.16.96.116:48882, Link has been severed"
+          },
+          {
+            "id": "L4676955",
+            "timestamp": "2005-12-13T05:19:00Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: Error reading message prefix on CioStream socket to 172.16.96.116:48617, Link has been severed"
+          }
+        ]
+      }
     },
     {
       "timestamp": "2005-12-13T06:47:00Z",
@@ -4020,7 +5276,38 @@
         "APP FATAL: ciod: Error reading message prefix on CioStream socket to 172.16.96.116:46375, Link has been severed",
         "APP FATAL: ciod: Error reading message prefix on CioStream socket to 172.16.96.116:46374, Link has been severed"
       ],
-      "log_count": 96
+      "log_count": 96,
+      "investigation": {
+        "threshold": 0.4597826714634374,
+        "driver": {
+          "feature": "log_fatal_count",
+          "observed": 95,
+          "log_odds": 6.557612570483375
+        },
+        "records": [
+          {
+            "id": "L4680802",
+            "timestamp": "2005-12-14T15:15:39Z",
+            "component": "FATAL",
+            "severity": "Kill",
+            "message": "job 58123 timed out. Block freed."
+          },
+          {
+            "id": "L4680803",
+            "timestamp": "2005-12-14T15:15:42Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: Error reading message prefix on CioStream socket to 172.16.96.116:46375, Link has been severed"
+          },
+          {
+            "id": "L4680804",
+            "timestamp": "2005-12-14T15:15:42Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: Error reading message prefix on CioStream socket to 172.16.96.116:46374, Link has been severed"
+          }
+        ]
+      }
     },
     {
       "timestamp": "2005-12-14T19:55:00Z",
@@ -4070,7 +5357,24 @@
       "messages": [
         "APP FATAL: ciod: Error loading /g/g0/spelce1/Tuned/SPaSM-base/rundir/SPaSM.baseline: invalid or missing program image, Permission denied"
       ],
-      "log_count": 169
+      "log_count": 169,
+      "investigation": {
+        "threshold": 0.4597826714634374,
+        "driver": {
+          "feature": "log_fatal_count",
+          "observed": 169,
+          "log_odds": 7.4899847305784295
+        },
+        "records": [
+          {
+            "id": "L4682344",
+            "timestamp": "2005-12-14T22:29:30Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: Error loading /g/g0/spelce1/Tuned/SPaSM-base/rundir/SPaSM.baseline: invalid or missing program image, Permission denied"
+          }
+        ]
+      }
     },
     {
       "timestamp": "2005-12-14T22:55:00Z",
@@ -4298,7 +5602,45 @@
         "KERNEL FATAL: Lustre mount FAILED : bglio550 : block_id : location",
         "KERNEL FATAL: Lustre mount FAILED : bglio553 : block_id : location"
       ],
-      "log_count": 23
+      "log_count": 23,
+      "investigation": {
+        "threshold": 0.4597826714634374,
+        "driver": {
+          "feature": "log_fatal_count",
+          "observed": 23,
+          "log_odds": 4.295749393423089
+        },
+        "records": [
+          {
+            "id": "L4692138",
+            "timestamp": "2005-12-16T22:55:36Z",
+            "component": "KERNEL",
+            "severity": "FATAL",
+            "message": "Lustre mount FAILED : bglio775 : block_id : location"
+          },
+          {
+            "id": "L4692139",
+            "timestamp": "2005-12-16T22:55:37Z",
+            "component": "KERNEL",
+            "severity": "FATAL",
+            "message": "Lustre mount FAILED : bglio550 : block_id : location"
+          },
+          {
+            "id": "L4692140",
+            "timestamp": "2005-12-16T22:55:38Z",
+            "component": "KERNEL",
+            "severity": "FATAL",
+            "message": "Lustre mount FAILED : bglio553 : block_id : location"
+          },
+          {
+            "id": "L4692148",
+            "timestamp": "2005-12-16T22:55:45Z",
+            "component": "KERNEL",
+            "severity": "FATAL",
+            "message": "Lustre mount FAILED : bglio1017 : block_id : location"
+          }
+        ]
+      }
     },
     {
       "timestamp": "2005-12-17T01:20:00Z",
@@ -4323,7 +5665,38 @@
         "APP FATAL: ciod: Error reading message prefix on CioStream socket to 172.16.96.116:41788, Link has been severed",
         "APP FATAL: ciod: Error reading message prefix on CioStream socket to 172.16.96.116:41787, Link has been severed"
       ],
-      "log_count": 17
+      "log_count": 17,
+      "investigation": {
+        "threshold": 0.4597826714634374,
+        "driver": {
+          "feature": "log_fatal_count",
+          "observed": 16,
+          "log_odds": 3.7331113132445526
+        },
+        "records": [
+          {
+            "id": "L4693383",
+            "timestamp": "2005-12-17T17:32:26Z",
+            "component": "FATAL",
+            "severity": "Kill",
+            "message": "job 58230 timed out. Block freed."
+          },
+          {
+            "id": "L4693384",
+            "timestamp": "2005-12-17T17:32:27Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: Error reading message prefix on CioStream socket to 172.16.96.116:41788, Link has been severed"
+          },
+          {
+            "id": "L4693385",
+            "timestamp": "2005-12-17T17:32:27Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: Error reading message prefix on CioStream socket to 172.16.96.116:41787, Link has been severed"
+          }
+        ]
+      }
     },
     {
       "timestamp": "2005-12-17T20:12:00Z",
@@ -4411,7 +5784,38 @@
         "APP FATAL: ciod: Error reading message prefix on CioStream socket to 172.16.96.116:45130, Link has been severed",
         "APP FATAL: ciod: Error reading message prefix on CioStream socket to 172.16.96.116:45129, Link has been severed"
       ],
-      "log_count": 310
+      "log_count": 310,
+      "investigation": {
+        "threshold": 0.4597826714634374,
+        "driver": {
+          "feature": "log_fatal_count",
+          "observed": 310,
+          "log_odds": 8.475455710449152
+        },
+        "records": [
+          {
+            "id": "L4694739",
+            "timestamp": "2005-12-18T20:32:00Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: Error reading message prefix on CioStream socket to 172.16.96.116:45941, Link has been severed"
+          },
+          {
+            "id": "L4694740",
+            "timestamp": "2005-12-18T20:32:00Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: Error reading message prefix on CioStream socket to 172.16.96.116:45130, Link has been severed"
+          },
+          {
+            "id": "L4694741",
+            "timestamp": "2005-12-18T20:32:00Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: Error reading message prefix on CioStream socket to 172.16.96.116:45129, Link has been severed"
+          }
+        ]
+      }
     },
     {
       "timestamp": "2005-12-19T01:48:00Z",
@@ -4459,7 +5863,38 @@
         "APP FATAL: ciod: Error reading message prefix on CioStream socket to 172.16.96.116:44073, Link has been severed",
         "APP FATAL: ciod: Error reading message prefix on CioStream socket to 172.16.96.116:43992, Link has been severed"
       ],
-      "log_count": 96
+      "log_count": 96,
+      "investigation": {
+        "threshold": 0.4597826714634374,
+        "driver": {
+          "feature": "log_fatal_count",
+          "observed": 96,
+          "log_odds": 6.574520383906554
+        },
+        "records": [
+          {
+            "id": "L4697180",
+            "timestamp": "2005-12-19T16:07:00Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: Error reading message prefix on CioStream socket to 172.16.96.116:43987, Link has been severed"
+          },
+          {
+            "id": "L4697181",
+            "timestamp": "2005-12-19T16:07:00Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: Error reading message prefix on CioStream socket to 172.16.96.116:44073, Link has been severed"
+          },
+          {
+            "id": "L4697182",
+            "timestamp": "2005-12-19T16:07:00Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: Error reading message prefix on CioStream socket to 172.16.96.116:43992, Link has been severed"
+          }
+        ]
+      }
     },
     {
       "timestamp": "2005-12-20T06:19:00Z",
@@ -4518,7 +5953,24 @@
       "messages": [
         "APP FATAL: ciod: Error loading /g/g0/spelce1/Tuned/SPaSM-opt/rundir/SPaSM_mpi: invalid or missing program image, No such file or directory"
       ],
-      "log_count": 96
+      "log_count": 96,
+      "investigation": {
+        "threshold": 0.4597826714634374,
+        "driver": {
+          "feature": "log_fatal_count",
+          "observed": 96,
+          "log_odds": 6.574520383906554
+        },
+        "records": [
+          {
+            "id": "L4700359",
+            "timestamp": "2005-12-20T20:03:39Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: Error loading /g/g0/spelce1/Tuned/SPaSM-opt/rundir/SPaSM_mpi: invalid or missing program image, No such file or directory"
+          }
+        ]
+      }
     },
     {
       "timestamp": "2005-12-20T23:35:00Z",
@@ -4616,7 +6068,31 @@
         "KERNEL INFO: ciod: generated 1 core files for program /g/g24/buber/Yuri/parmd/files/src/parmdg8.exe",
         "APP FATAL: ciod: Error loading /g/g24/buber/Yunsic/BlueGene/partad.develf/taddriver.16b.exe: program image too big, 269199248 > 266076160"
       ],
-      "log_count": 9
+      "log_count": 9,
+      "investigation": {
+        "threshold": 0.4597826714634374,
+        "driver": {
+          "feature": "log_fatal_count",
+          "observed": 8,
+          "log_odds": 2.695438786533945
+        },
+        "records": [
+          {
+            "id": "L4701287",
+            "timestamp": "2005-12-21T19:17:22Z",
+            "component": "KERNEL",
+            "severity": "INFO",
+            "message": "ciod: generated 1 core files for program /g/g24/buber/Yuri/parmd/files/src/parmdg8.exe"
+          },
+          {
+            "id": "L4701288",
+            "timestamp": "2005-12-21T19:17:57Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: Error loading /g/g24/buber/Yunsic/BlueGene/partad.develf/taddriver.16b.exe: program image too big, 269199248 > 266076160"
+          }
+        ]
+      }
     },
     {
       "timestamp": "2005-12-21T21:43:00Z",
@@ -4857,7 +6333,38 @@
         "APP FATAL: ciod: Error reading message prefix on CioStream socket to 172.16.96.116:54249, Link has been severed",
         "APP FATAL: ciod: Error reading message prefix on CioStream socket to 172.16.96.116:54248, Link has been severed"
       ],
-      "log_count": 356
+      "log_count": 356,
+      "investigation": {
+        "threshold": 0.4597826714634374,
+        "driver": {
+          "feature": "log_fatal_count",
+          "observed": 356,
+          "log_odds": 8.700521833516358
+        },
+        "records": [
+          {
+            "id": "L4706082",
+            "timestamp": "2005-12-26T17:57:00Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: Error reading message prefix on CioStream socket to 172.16.96.116:54242, Link has been severed"
+          },
+          {
+            "id": "L4706083",
+            "timestamp": "2005-12-26T17:57:00Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: Error reading message prefix on CioStream socket to 172.16.96.116:54249, Link has been severed"
+          },
+          {
+            "id": "L4706084",
+            "timestamp": "2005-12-26T17:57:00Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: Error reading message prefix on CioStream socket to 172.16.96.116:54248, Link has been severed"
+          }
+        ]
+      }
     },
     {
       "timestamp": "2005-12-26T19:23:00Z",
@@ -4883,7 +6390,38 @@
         "APP FATAL: ciod: Error reading message prefix on CioStream socket to 172.16.96.116:36724, Link has been severed",
         "APP FATAL: ciod: Error reading message prefix on CioStream socket to 172.16.96.116:36723, Link has been severed"
       ],
-      "log_count": 12
+      "log_count": 12,
+      "investigation": {
+        "threshold": 0.4597826714634374,
+        "driver": {
+          "feature": "log_fatal_count",
+          "observed": 11,
+          "log_odds": 3.1648178048929454
+        },
+        "records": [
+          {
+            "id": "L4707124",
+            "timestamp": "2005-12-26T20:49:57Z",
+            "component": "FATAL",
+            "severity": "Kill",
+            "message": "job 59023 timed out. Block freed."
+          },
+          {
+            "id": "L4707125",
+            "timestamp": "2005-12-26T20:49:58Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: Error reading message prefix on CioStream socket to 172.16.96.116:36724, Link has been severed"
+          },
+          {
+            "id": "L4707126",
+            "timestamp": "2005-12-26T20:49:58Z",
+            "component": "APP",
+            "severity": "FATAL",
+            "message": "ciod: Error reading message prefix on CioStream socket to 172.16.96.116:36723, Link has been severed"
+          }
+        ]
+      }
     },
     {
       "timestamp": "2005-12-26T23:32:00Z",
@@ -6049,7 +7587,24 @@
       "messages": [
         "KERNEL FATAL: idoproxy communication failure: socket closed"
       ],
-      "log_count": 8
+      "log_count": 8,
+      "investigation": {
+        "threshold": 0.4597826714634374,
+        "driver": {
+          "feature": "log_fatal_count",
+          "observed": 8,
+          "log_odds": 2.695438786533945
+        },
+        "records": [
+          {
+            "id": "L4747956",
+            "timestamp": "2006-01-04T16:00:05Z",
+            "component": "KERNEL",
+            "severity": "FATAL",
+            "message": "idoproxy communication failure: socket closed"
+          }
+        ]
+      }
     }
   ],
   "total_windows": 5534,
